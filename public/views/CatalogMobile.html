@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Oblečení – katalog mobil</title>
+</head>
+<body>
+<template id="x-dc">
+<helmet>
+<style>
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:300;src:url(img/ce9b1a0918863c84b2d777d718880298.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:400;src:url(img/1e1321f388e34db8b2e794b91d35f268.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:600;src:url(img/f4469fd3f08bc29d491d8cea58b02134.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:700;src:url(img/25d77fd3cc86c5ee7a077a742301b66a.woff2) format("woff2");font-display:swap}
+body{margin:0;background:#fff}
+a{color:#000}a:not([style*="background"]):not([style*="border"]):not([style*="flex-direction: column"]):hover{color:#00A151 !important;text-decoration:underline !important;text-underline-offset:3px}
+.arr{display:inline-block;flex:0 0 auto;transition:transform .2s ease-in}a:hover .arr,button:hover .arr{transform:translateX(8px)}
+:focus-visible{outline:2px solid #00A151 !important;outline-offset:2px}input:focus,select:focus,textarea:focus{outline:2px solid #00A151 !important;outline-offset:0;border-color:#00A151 !important}
+input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
+</style>
+</helmet>
+<div style="width: 100%; font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff; overflow: hidden">
+
+<div style="background: #000; color: #fff; font-size: 12px; line-height: 16px; padding: 8px 16px; text-align: center">Objednej do 12:00, doručíme další pracovní den</div>
+
+<!-- HEADER -->
+<header style="border-bottom: 1px solid #ddd; background: #fff">
+<div style="padding: 12px 8px 12px 16px; display: flex; align-items: center; gap: 4px">
+<a href="index.html" aria-label="Cartoon – úvod" style="display: flex; flex-direction: column; gap: 3px; text-decoration: none; margin-right: auto">
+<img src="img/6b673a984f403c01ecd9985d2700a26c.svg" alt="cartoon" style="width: 108px; height: auto; display: block">
+</a>
+<a href="#" aria-label="Můj účet" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+<a href="kosik.html" aria-label="Košík, 0 položek" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 8h14l-1 13H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span style="position: absolute; top: 6px; right: 4px; min-width: 16px; height: 16px; background: #000; color: #fff; font-size: 10px; line-height: 16px; text-align: center">0</span></a>
+<a href="menu.html" aria-label="Otevřít menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #000"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></a>
+</div>
+<form style="margin: 0 16px 12px; display: flex; border: 1px solid #000">
+<label for="mq" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Hledat</label>
+<input id="mq" type="search" placeholder="vyhledej co chceš" style="flex: 1 1 auto; min-width: 0; border: 0; padding: 12px 14px; font-family: FKGrotesk, sans-serif; font-size: 16px">
+<button type="submit" aria-label="Hledat" style="width: 48px; border: 0; background: #000; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
+</form>
+</header>
+
+<!-- ÚVOD -->
+<section style="padding: 14px 16px 0">
+<nav aria-label="Drobečková navigace" style="font-size: 13px; color: #555"><a href="index.html" style="color: #555">Úvod</a> / Oblečení</nav>
+<h1 style="margin: 12px 0 6px; font-size: 32px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Oblečení <span style="font-size: 15px; font-weight: 400; color: #555; letter-spacing: 0; vertical-align: top">1 019</span></h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #2d2d2d">Trička, mikiny, bundy a kalhoty od Carhartt WIP, Edwin, Iriedaily a The Dudes.</p>
+</section>
+<ul aria-label="Podkategorie" style="list-style: none; margin: 16px 0 0 16px; padding: 0 16px 0 0; display: flex; gap: 8px; overflow-x: auto">
+<sc-for list="{{subcats}}" as="c" hint-placeholder-count="6">
+<li style="flex: 0 0 auto"><a href="#" style="display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border: 1px solid #ddd; text-decoration: none; font-size: 14px; line-height: 18px; font-weight: 600; white-space: nowrap"><img src="{{c.img}}" alt="" width="36" height="36" style="width: 36px; height: 36px; object-fit: contain; background: #fff; display: block; flex: 0 0 auto">{{c.label}}</a></li>
+</sc-for>
+</ul>
+
+<!-- LIŠTA FILTRŮ -->
+<div style="position: sticky; top: 0; z-index: 2; background: #fff; margin-top: 16px; border-top: 1px solid #000; border-bottom: 1px solid #ddd; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+<button type="button" onClick="{{toggleDrawer}}" aria-expanded="{{drawerExpanded}}" style="min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #fff; border: 0; border-right: 1px solid #ddd; font-family: FKGrotesk, sans-serif; font-size: 15px; font-weight: 600; color: #000"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>Filtrovat{{activeCountLabel}}</button>
+<label style="position: relative; min-height: 52px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Seřadit</span>
+<select style="appearance: none; -webkit-appearance: none; border: 0; background: none; font-family: FKGrotesk, sans-serif; font-size: 15px; font-weight: 600; text-align: center; padding: 0 20px; min-height: 52px">
+<option>Řadit: nejnovější</option><option>Nejprodávanější</option><option>Od nejlevnějšího</option><option>Od nejdražšího</option>
+</select></label>
+</div>
+
+<!-- FILTRY (rozbalené) -->
+<sc-if value="{{drawerOpen}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Filtry" style="background: #fff; border-bottom: 1px solid #000">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 16px; border-bottom: 1px solid #ddd">
+<sc-for list="{{toggles}}" as="t" hint-placeholder-count="3"><button type="button" onClick="{{t.toggle}}" aria-pressed="{{t.pressed}}" style="{{t.style}}">{{t.label}}</button></sc-for>
+</div>
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="6">
+<div style="border-bottom: 1px solid #ddd">
+<h2 style="margin: 0"><button type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; min-height: 54px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; background: none; border: 0; font-family: FKGrotesk, sans-serif; font-size: 16px; font-weight: 600; color: #000">{{f.label}} {{f.countLabel}}<span aria-hidden="true" style="font-size: 20px; font-weight: 400">{{f.sign}}</span></button></h2>
+<sc-if value="{{f.isOpen}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 16px">
+<sc-for list="{{f.options}}" as="o" hint-placeholder-count="6"><button type="button" onClick="{{o.toggle}}" aria-pressed="{{o.pressed}}" style="{{o.style}}">{{o.label}} <span style="{{o.countStyle}}">{{o.count}}</span></button></sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 8px; padding: 14px 16px">
+<button type="button" onClick="{{clearAll}}" style="min-height: 52px; background: #fff; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 15px; font-weight: 600">Zrušit vše</button>
+<button type="button" onClick="{{toggleDrawer}}" style="min-height: 52px; background: #000; color: #fff; border: 0; font-family: FKGrotesk, sans-serif; font-size: 15px; font-weight: 600">Zobrazit 1 019 produktů</button>
+</div>
+</section>
+</sc-if>
+
+<!-- aktivní filtry -->
+<sc-if value="{{hasActive}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 8px; overflow-x: auto; padding: 12px 16px 0">
+<sc-for list="{{active}}" as="a" hint-placeholder-count="2"><button type="button" onClick="{{a.remove}}" aria-label="Zrušit filtr {{a.label}}" style="flex: 0 0 auto; min-height: 36px; padding: 0 12px; background: #000; color: #fff; border: 0; font-family: FKGrotesk, sans-serif; font-size: 13px; white-space: nowrap">{{a.label}} ×</button></sc-for>
+</div>
+</sc-if>
+
+<!-- MŘÍŽKA -->
+<section aria-label="Produkty" style="padding: 16px 16px 0">
+<div style="display: flex; gap: 12px; overflow-x: auto; margin: 0 -16px 0 0; padding: 0 16px 0 0; scroll-snap-type: x mandatory">
+<sc-for list="{{first}}" as="p" hint-placeholder-count="4">
+<div style="position: relative; flex: 0 0 240px; scroll-snap-align: start">
+<a href="produkt.html" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #000">
+<div style="position: relative; aspect-ratio: 4 / 5; background: #f4f4f4; display: flex; align-items: center; justify-content: center; color: #555; font-size: 11px; overflow: hidden"><img src="{{p.img}}" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block">
+<sc-if value="{{p.isNew}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; top: 8px; left: 8px; background: #00A151; color: #fff; font-size: 11px; line-height: 14px; padding: 3px 6px; font-weight: 600">Novinka</span></sc-if>
+<sc-if value="{{p.inStock}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; left: 8px; bottom: 8px; right: 8px; font-size: 11px; line-height: 14px">{{p.sizes}}</span></sc-if>
+<sc-if value="{{p.soldOut}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; inset: 0; background: rgba(255,255,255,0.6); display: flex; align-items: flex-end; padding: 8px; font-size: 12px; font-weight: 600">Vyprodáno</span></sc-if>
+</div>
+<div><div style="font-size: 12px; line-height: 16px; color: #555">{{p.type}}</div><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">{{p.name}}</h3></div>
+<span style="{{p.priceStyle}}">{{p.price}}</span>
+</a>
+<button type="button" aria-label="Přidat do oblíbených" style="position: absolute; top: 0; right: 0; width: 44px; height: 44px; background: none; border: 0; display: flex; align-items: center; justify-content: center; color: #000"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg></button>
+</div>
+</sc-for>
+</div>
+<a href="carhartt-wip-praha.html" style="margin: 28px 0; position: relative; background: #293038; color: #fff; text-decoration: none; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: 20px; min-height: 260px">
+<img src="img/2672d3e49af6de9d2095ed10a393cbd8.jpg" alt="Carhartt WIP Vista" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% center; display: block"><span style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0) 80%)"></span>
+<span style="position: relative; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em">Kolekce</span>
+<h2 style="position: relative; margin: 0; font-size: 24px; line-height: 1.2; font-weight: 600">Carhartt WIP Vista</h2>
+<span style="position: relative; align-self: flex-start; min-height: 44px; padding: 0 18px; background: #fff; color: #000; display: flex; align-items: center; font-weight: 600; font-size: 15px">Prohlédnout kolekci <span class="arr">→</span></span>
+</a>
+<div style="display: flex; gap: 12px; overflow-x: auto; margin: 0 -16px 0 0; padding: 0 16px 0 0; scroll-snap-type: x mandatory">
+<sc-for list="{{rest}}" as="p" hint-placeholder-count="6">
+<div style="position: relative; flex: 0 0 240px; scroll-snap-align: start">
+<a href="produkt.html" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #000">
+<div style="position: relative; aspect-ratio: 4 / 5; background: #f4f4f4; display: flex; align-items: center; justify-content: center; color: #555; font-size: 11px; overflow: hidden"><img src="{{p.img}}" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block">
+<sc-if value="{{p.isNew}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; top: 8px; left: 8px; background: #00A151; color: #fff; font-size: 11px; line-height: 14px; padding: 3px 6px; font-weight: 600">Novinka</span></sc-if>
+<sc-if value="{{p.inStock}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; left: 8px; bottom: 8px; right: 8px; font-size: 11px; line-height: 14px">{{p.sizes}}</span></sc-if>
+<sc-if value="{{p.soldOut}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; inset: 0; background: rgba(255,255,255,0.6); display: flex; align-items: flex-end; padding: 8px; font-size: 12px; font-weight: 600">Vyprodáno</span></sc-if>
+</div>
+<div><div style="font-size: 12px; line-height: 16px; color: #555">{{p.type}}</div><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">{{p.name}}</h3></div>
+<span style="{{p.priceStyle}}">{{p.price}}</span>
+</a>
+<button type="button" aria-label="Přidat do oblíbených" style="position: absolute; top: 0; right: 0; width: 44px; height: 44px; background: none; border: 0; display: flex; align-items: center; justify-content: center; color: #000"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg></button>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 40px 0 0">
+<span style="font-size: 13px; color: #555">Zobrazeno 12 z 1 019 produktů</span>
+<span style="width: 200px; height: 3px; background: #e8eaeb; position: relative; display: block"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: 4%; background: #000"></span></span>
+<button type="button" style="width: 100%; min-height: 52px; background: #000; color: #fff; border: 0; font-family: FKGrotesk, sans-serif; font-size: 16px; font-weight: 600">Načíst dalších 24</button>
+</div>
+</section>
+
+<!-- SEO + FAQ -->
+<section style="padding: 72px 16px 48px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 600">Carhartt WIP oblečení od oficiálního distributora</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #2d2d2d">Moderní podoba ikonického amerického workwearu. Jako oficiální distributor pro ČR a SK nabízíme originální oblečení s garancí autenticity.</p>
+<sc-if value="{{seoOpen}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #2d2d2d">Detroit Jacket, Double Knee Pant nebo Chase Sweat patří dlouhodobě mezi bestsellery. Veškeré oblečení pochází z oficiální evropské distribuce Carhartt WIP.</p></sc-if>
+<button type="button" onClick="{{toggleSeo}}" aria-expanded="{{seoExpanded}}" style="align-self: flex-start; background: none; border: 0; padding: 0; min-height: 44px; font-family: FKGrotesk, sans-serif; font-size: 15px; font-weight: 600; text-decoration: underline">{{seoLabel}}</button>
+</section>
+
+<!-- FAQ (stejně jako landing / homepage) -->
+<section aria-labelledby="mfaq-h" style="border-top: 1px solid #ddd; padding: 60px 16px">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px"><span style="width: 28px; height: 4px; background: {{accent}}"></span>Oblečení</div>
+<h2 id="mfaq-h" style="margin: 0 0 20px; font-size: 24px; line-height: 1.2; font-weight: 600">Časté dotazy k oblečení</h2>
+<div style="border-top: 1px solid #000">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="border-bottom: 1px solid #ddd">
+<h3 style="margin: 0">
+<button type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; min-height: 60px; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; background: none; border: 0; text-align: left; font-family: FKGrotesk, sans-serif; font-size: 17px; line-height: 22px; font-weight: 600; color: #000; cursor: pointer">{{f.q}}<span aria-hidden="true" style="flex: 0 0 auto; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 1px solid #000; color: #00A151; box-sizing: border-box; font-size: 18px; font-weight: 600">{{f.sign}}</span></button>
+</h3>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 0 18px; font-size: 16px; line-height: 1.65">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+<section aria-labelledby="ml-h" style="background: #000; color: #fff; padding: 48px 16px">
+<h2 id="ml-h" style="margin: 0 0 6px; font-size: 24px; line-height: 1.2; font-weight: 600">Přihlaš se do našeho mailingu</h2>
+<p style="margin: 0 0 18px; color: #ddd">Novinky, nové dropy, SLEVY a akce jako první.</p>
+<form style="display: flex; flex-direction: column; gap: 10px">
+<label for="mnl" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">E-mail</label>
+<input id="mnl" type="email" placeholder="tvuj@email.cz" style="min-height: 52px; padding: 0 16px; border: 0; font-family: FKGrotesk, sans-serif; font-size: 16px">
+<button type="submit" style="min-height: 52px; background: {{accent}}; color: #fff; border: 0; font-family: FKGrotesk, sans-serif; font-size: 16px; font-weight: 600">Přihlásit se</button>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 18px; color: #ddd"><input type="checkbox" style="width: 18px; height: 18px; margin: 0; flex: 0 0 auto">souhlasím se zpracováním údajů dle pravidel GDPR a chci být informován o novinkách, slevách a akcích</label>
+</form>
+</section>
+
+<!-- USP -->
+<section aria-label="Výhody nákupu" style="border-top: 1px solid #ddd; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+<div style="padding: 18px 16px; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd"><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Osobní odběr zdarma</h3><div style="font-size: 13px; line-height: 18px; color: #555">V Panské 7</div></div>
+<div style="padding: 18px 16px; border-bottom: 1px solid #ddd"><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Vše skladem</h3><div style="font-size: 13px; line-height: 18px; color: #555">Co nemáme, objednáme</div></div>
+<div style="padding: 18px 16px; border-right: 1px solid #ddd"><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Rychlé dodání</h3><div style="font-size: 13px; line-height: 18px; color: #555">Do 12:00, další den u tebe</div></div>
+<div style="padding: 18px 16px"><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Garance výměny</h3><div style="font-size: 13px; line-height: 18px; color: #555">Vrácení do 14 dní</div></div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #293038; color: #fff; font-size: 15px; line-height: 22px">
+<div style="padding: 40px 16px 24px; display: flex; flex-direction: column; gap: 18px">
+<a href="index.html" aria-label="Cartoon – úvod" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none">
+<img src="img/9e02a3c4c4f34496a20132ff2c3d1be5.svg" alt="cartoon" style="width: 120px; height: auto; display: block">
+</a>
+<p style="margin: 0; color: #e8eaeb">Streetwear a workwear v centru Prahy. Oficiální distributor Carhartt WIP pro ČR a SK.</p>
+<div style="background: #3a434d; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+<h4 style="margin: 0 0 4px; font-size: 16px; line-height: 22px; font-weight: 600; color: #00A151">Prodejna Panská 7</h4>
+<span style="color: #e8eaeb">Panská 7, 110 00 Praha 1</span>
+<span style="color: #e8eaeb">Po–So 10–19 · Ne 10–18</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 10px">
+<a href="tel:+420224267486" style="min-height: 44px; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 600; font-size: 14px">Zavolat</a>
+<a href="mailto:obchod@cartoon.cz" style="min-height: 44px; border: 1px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 600; font-size: 14px; box-sizing: border-box">Napsat e-mail</a>
+</div>
+</div>
+</div>
+<div style="border-top: 1px solid #3a434d">
+<sc-for list="{{footCols}}" as="fc" hint-placeholder-count="3">
+<div style="border-bottom: 1px solid #3a434d">
+<h4 style="margin: 0">
+<button type="button" onClick="{{fc.toggle}}" aria-expanded="{{fc.expanded}}" style="width: 100%; min-height: 56px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; background: none; border: 0; color: #00A151; font-family: FKGrotesk, sans-serif; font-size: 16px; font-weight: 600; cursor: pointer">{{fc.title}}<span aria-hidden="true" style="font-size: 20px; font-weight: 400">{{fc.sign}}</span></button>
+</h4>
+<sc-if value="{{fc.open}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; padding: 0 16px 12px">
+<sc-for list="{{fc.links}}" as="l" hint-placeholder-count="4"><a href="{{l.href}}" style="color: #e8eaeb; text-decoration: none; padding: 10px 0">{{l.t}}</a></sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<div style="padding: 24px 16px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; gap: 8px">
+<a href="#" aria-label="Instagram" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
+<a href="#" aria-label="Facebook" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 22v-8h3l.5-4H14V8c0-1 .4-2 2-2h1.7V2.5c-.8-.1-1.8-.2-2.7-.2-2.8 0-4.5 1.7-4.5 4.7V10H7.5v4h3v8"></path></svg></a>
+<a href="#" aria-label="YouTube" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+<a href="#" aria-label="SoundCloud" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17v-3M6 17v-5M9 17V9M12 17V7.5h3.5a5 5 0 0 1 5 4.6A3 3 0 0 1 18 17z"></path></svg></a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="height: 30px; padding: 0 8px; background: #fff; color: #000; display: flex; align-items: center; font-size: 10px; font-weight: 700">[VISA]</span>
+<span style="height: 30px; padding: 0 8px; background: #fff; color: #000; display: flex; align-items: center; font-size: 10px; font-weight: 700">[Mastercard]</span>
+<span style="height: 30px; padding: 0 8px; background: #fff; color: #000; display: flex; align-items: center; font-size: 10px; font-weight: 700">[Apple Pay]</span>
+<span style="height: 30px; padding: 0 8px; background: #fff; color: #000; display: flex; align-items: center; font-size: 10px; font-weight: 700">[Google Pay]</span>
+</div>
+<div style="display: flex; align-items: center; gap: 4px; font-size: 14px"><span style="color: #aaa; margin-right: 4px">Měna:</span><a href="#" style="color: #fff; font-weight: 600; text-decoration: none; padding: 10px 6px">CZK</a><span style="color: #5a6570">/</span><a href="#" style="color: #aaa; text-decoration: none; padding: 10px 6px">EUR</a></div>
+</div>
+<div style="background: #000; color: #aaa; font-size: 12px; line-height: 18px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+<span>© 2026 T-Bone s.r.o. – Všechna práva vyhrazena</span>
+<span>design by <a href="https://forejt.net" style="color: #aaa">forejt.net</a> · font <a href="https://fonts.floriankarsten.com" style="color: #aaa">FK Grotesk – fonts.floriankarsten.com</a></span>
+</div>
+</footer>
+
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":6900}}'>
+const __IM = [["painter", ["img/d18f7531223f5c88ec0969e736a07851.jpg"]], ["i hartt", ["img/bbfd46df3eb242c68611dbadfe5b9b0e.jpg"]], ["snake nixon", ["img/b4099b0ef18faa06282d162a5e71082a.jpg"]], ["terrace", ["img/2e7517d11d7d13e8244719af39eaa41b.jpg"]], ["rosomako", ["img/bead53d063b2575e72bc7b84ea194ce8.jpg"]], ["switchup", ["img/e2fdfeec5139935e5b80df5158ead084.jpg"]], ["paddy", ["img/d888ff68c434095d2008f375dfa78253.jpg"]], ["mini flag", ["img/e5d4fb3937ff3a770ae586b27d792ccb.jpg"]], ["peaceride", ["img/883c35523ac9fb4bd914ef7f0681a851.jpg"]], ["love in the books", ["img/52e183412998859da7be0a3c8100622f.jpg"]], ["slot machine", ["img/a35abc4b63584a235f735873c116f1cb.jpg"]], ["pouch", ["img/3d02a129d1c7bf75371d16d34cda43ac.jpg"]], ["double pack", ["img/a3a57d700c3b1a8583509f9d5807cc3b.jpg"]], ["w belt", ["img/a0aaeb981260a4f5cf62d1eb736ef618.jpg"]], ["diner", ["img/cfb07384ff76c689c23023eaba34f473.jpg"]], ["trucker cap vintage", ["img/1586ca77bcdac6c19ab691401db64069.jpg"]], ["lettering", ["img/cd9a0914236d1b4222aed749f95e0789.jpg"]], ["trucker cap fun", ["img/5ab4903e310c90f24b83a229a16f30c8.jpg"]], ["baseball cap retro", ["img/570584b89578abbcc600b86c946c7681.jpg"]], ["og detroit", ["img/0abc48c292684f71fdb13d1a34ad42e0.jpg", "img/41c31f5da98755d25ea50ba4c50f9ef4.jpg", "img/fdee50cac25af322e16c01794412f1c3.jpg"]], ["detroit jacket", ["img/30cbc66f68fa256c9c78123d97f37534.jpg"]], ["og active", ["img/98ba6360e239882c64531c39c5b7a525.jpg", "img/49c9c7ae682b0d38dc35b5cce12fe30a.jpg", "img/4ac645a433631e43b20099d0c85e70f8.jpg"]], ["active sweat", ["img/6b3f85b7a98020ef1733c90ffa758a17.jpg"]], ["landon", ["img/27e4f9e422550949c6a935550417fdbc.jpg"]], ["newel", ["img/27e4f9e422550949c6a935550417fdbc.jpg"]], ["belmar", ["img/7f1b304f33b29192360b1a7e13dba494.jpg"]], ["payson", ["img/62eb0d6d4ee9648aafc627a15d340a14.jpg", "img/9b0017b327cf52f5e7261412bbd65f44.jpg"]], ["lavine", ["img/d353bdc5c85329b33c96c416a1931d40.jpg"]], ["blackletter", ["img/98c92d47eacc6841346b36f71c3dbda4.jpg"]], ["limn c fleece", ["img/ae8f89a24a088a3220148a3bb2fabcb7.jpg"]], ["casey", ["img/ae8f89a24a088a3220148a3bb2fabcb7.jpg"]], ["hooded chase", ["img/1383ee50b56a690ec44dc338465dfcd4.jpg"]], ["chase hoodie", ["img/1383ee50b56a690ec44dc338465dfcd4.jpg"]], ["chase", ["img/54042ffb43e33510e7e4944fe8704dbf.jpg"]], ["gabe", ["img/28a6c9d99ddc3dd555e9c1d1bb4329d6.jpg"]], ["acrylic", ["img/b91cc3332d2b06331175824e9ba34bdc.jpg"]], ["kreuzkoelln", ["img/eff5b0ef74e5f27ea3dc7083764ec38b.jpg"]], ["vista", ["img/b5b48a9c1a938b9dc0bf55e418f8203b.jpg"]], ["arizona", ["img/19def54ca21fe88d840f9640bbf861ac.jpg"]], ["santa fe", ["img/cfd0fe8bbf4ffab3788f1a59d2663d57.jpg"]], ["orman", ["img/994306012429a6871bdc6196bcf5769c.jpg"]], ["michigan", ["img/03635ee0413eecfae5b05fc2ba7e9b6c.jpg"]], ["double knee", ["img/656a5846ee836a633f5b3ea36a547886.jpg"]], ["script", ["img/301c46833ca058cfb34ed0681687ef8f.jpg"]], ["sezónní bundy", ["img/98ba6360e239882c64531c39c5b7a525.jpg"]]];
+const __CAT = {"Mikiny": "img/1383ee50b56a690ec44dc338465dfcd4.jpg", "Bundy": "img/0abc48c292684f71fdb13d1a34ad42e0.jpg", "Kalhoty": "img/656a5846ee836a633f5b3ea36a547886.jpg", "Kraťasy": "img/b4099b0ef18faa06282d162a5e71082a.jpg", "Trička": "img/301c46833ca058cfb34ed0681687ef8f.jpg", "Doplňky": "img/28a6c9d99ddc3dd555e9c1d1bb4329d6.jpg"};
+const __PR = {"Chase Hoodie": ["2 290 Kč"], "Chase Crewneck": ["1 990 Kč"], "Double Knee Pant": ["3 790 Kč"], "Michigan Coat": ["4 950 Kč"], "Script T-Shirt": ["1 150 Kč"], "Mini Flag 2 Zip Hood": ["2 250 Kč"], "Double Pack SS Tee": ["990 Kč"], "Trucker Cap Vintage": ["1 190 Kč"], "Rosomako Flannel Shirt": ["2 150 Kč"], "Peaceride Emb Tee": ["1 090 Kč"], "Paddy Shoulder Bag": ["1 250 Kč"], "Love In The Books TS": ["990 Kč"], "Slot Machine TS": ["890 Kč"], "Pouch Leather": ["990 Kč"], "Trucker Cap Steton's Diner": ["1 190 Kč"], "Trucker Cap Lettering": ["1 190 Kč"], "Trucker Cap Fun": ["1 250 Kč"], "Baseball Cap Retro": ["990 Kč"], "Painter Sweat": ["2 490 Kč", "3 290 Kč"], "W' S/S I Hartt T-Shirt": ["790 Kč", "1 150 Kč"], "W' Snake Nixon Double Knee Short": ["1 990 Kč", "2 990 Kč"], "S/S Terrace Football T-Shirt": ["1 690 Kč", "2 290 Kč"], "Detroit Jacket (jarní/letní)": ["4 550 Kč"], "S/S Limn Script T-Shirt": ["1 150 Kč"]};
+function __addImg(v) {
+  const ic = {};
+  const pick = n => { n = String(n || '').toLowerCase(); const e = __IM.find(x => n.indexOf(x[0]) >= 0); if (!e) return ''; const i = ic[e[0]] = (ic[e[0]] === undefined ? 0 : ic[e[0]] + 1); return e[1][i % e[1].length]; };
+  const walk = (o, key) => {
+    if (Array.isArray(o)) return key === 'categories' ? o.map(c => typeof c === 'string' ? { label: c, img: __CAT[c] || '' } : Object.assign({}, c, { img: c.img || __CAT[c.label] || '' })) : o.map(x => walk(x, key));
+    if (o && typeof o === 'object' && Object.getPrototypeOf(o) === Object.prototype) {
+      const r = {};
+      for (const k in o) r[k] = (typeof o[k] === 'function') ? o[k] : walk(o[k], k);
+      if (typeof r.name === 'string' && !r.img) { r.img = pick(r.name); const p = __PR[r.name]; if (p && typeof r.price === 'string' && r.price.indexOf('[cena]') >= 0) { r.price = p[0]; if (p[1] && 'oldPrice' in r) r.oldPrice = p[1]; } }
+      return r;
+    }
+    return o;
+  };
+  return walk(v, '');
+}
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { foot: -1, menu: false, drawer: true, fopen: 'size', sel: { size: ['M'] }, tog: { Skladem: true }, seo: false, faq: 0 };
+  }
+  renderVals() { return __addImg(this.__rv()); }
+  __rv() {
+    const st = this.state;
+    const menu = st.menu;
+    const F = [
+      { id: 'dept', label: 'Oddělení', options: [['pánské', 854], ['dámské', 161], ['unisex', 1]] },
+      { id: 'cat', label: 'Kategorie', options: [['bundy', null], ['mikiny', null], ['trička', null], ['kalhoty', null], ['košile', null], ['svetry', null]] },
+      { id: 'brand', label: 'Značka', options: [['Carhartt WIP', 951], ['The Dudes', 33], ['Iriedaily', 30], ['Edwin', 5]] },
+      { id: 'size', label: 'Velikost', options: [['XS', 106], ['S', 307], ['M', 469], ['L', 433], ['XL', 298], ['XXL', 90], ['30', 20], ['31', 40], ['32', 41], ['33', 54], ['34', 40], ['36', 43]] },
+      { id: 'color', label: 'Barva', options: [['Black', 256], ['Blue', 119], ['White', 55], ['Tobacco', 22], ['Dark Navy', 19]] },
+      { id: 'price', label: 'Cena', options: [['do 1 000 Kč', null], ['1 000 – 3 000 Kč', null], ['3 000 – 5 000 Kč', null], ['nad 5 000 Kč', null]] }
+    ];
+    const sel = st.sel;
+    const setSel = (fid, val) => { const cur = (sel[fid] || []).slice(); const i = cur.indexOf(val); if (i >= 0) cur.splice(i, 1); else cur.push(val); this.setState({ sel: Object.assign({}, sel, { [fid]: cur }) }); };
+    const pill = 'display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;font-family:FKGrotesk,sans-serif;font-size:14px;';
+    const filters = F.map(f => { const n = (sel[f.id] || []).length; const isOpen = st.fopen === f.id; return {
+      label: f.label, countLabel: n ? '(' + n + ')' : '', isOpen, expanded: isOpen ? 'true' : 'false', sign: isOpen ? '−' : '+',
+      toggle: () => this.setState({ fopen: isOpen ? null : f.id }),
+      options: f.options.map(([v, c]) => { const on = (sel[f.id] || []).indexOf(v) >= 0; return { label: v, count: c == null ? '' : c, pressed: on ? 'true' : 'false',
+        style: pill + (on ? 'background:#000;color:#fff;border:1px solid #000' : 'background:#fff;color:#000;border:1px solid #ddd'),
+        countStyle: 'font-size:11px;color:' + (on ? '#ddd' : '#555'), toggle: () => setSel(f.id, v) }; }) }; });
+    const active = [];
+    F.forEach(f => (sel[f.id] || []).forEach(v => active.push({ label: f.label + ': ' + v, remove: () => setSel(f.id, v) })));
+    const T = ['Skladem', 'Akce', 'Výprodej'];
+    const toggles = T.map(t => { const on = !!st.tog[t]; return { label: t, pressed: on ? 'true' : 'false',
+      style: pill + 'border-radius:22px;' + (on ? 'background:#000;color:#fff;border:1px solid #000' : 'background:#f4f4f4;color:#000;border:1px solid #f4f4f4'),
+      toggle: () => this.setState({ tog: Object.assign({}, st.tog, { [t]: !on }) }) }; });
+    T.forEach(t => { if (st.tog[t]) active.push({ label: t, remove: () => this.setState({ tog: Object.assign({}, st.tog, { [t]: false }) }) }); });
+    const P = (type, name, price, sizes, opts) => Object.assign({ type, name, price, sizes, isNew: true, soldOut: false }, opts || {});
+    const raw = [
+      P('pánská bunda', 'OG Detroit Jacket (podzimní/zimní)', '6 350 Kč', 'M · L · XL'),
+      P('pánská bunda', 'OG Detroit Jacket (podzimní/zimní)', '5 590 Kč', 'M · L · XL'),
+      P('pánská bunda', 'OG Detroit Jacket (podzimní/zimní)', '6 350 Kč', 'S · M · L · XL · XXL', { isNew: false }),
+      P('pánská bunda', 'Detroit Jacket (jarní/letní)', '4 550 Kč', 'S · M · L · XXL', { isNew: false }),
+      P('pánské kalhoty', 'Landon Pant', '2 990 Kč', '30 · 31 · 32 · 33 · 36'),
+      P('pánská bunda', 'OG Active Jacket (podzimní/zimní)', '5 590 Kč', 'M · L · XL · XXL'),
+      P('pánská bunda', 'OG Active Jacket (podzimní/zimní)', '5 850 Kč', '', { soldOut: true }),
+      P('dámská bunda', 'W\' Belmar Jacket', '4 990 Kč', 'XS · S · M'),
+      P('pánské kalhoty', 'Payson Pant', '2 550 Kč', '31 · 33 · 34 · 36'),
+      P('dámské kalhoty', 'W\' Lavine Pant', '2 550 Kč', '28 · 29 · 30')
+    ];
+    const items = raw.map(p => Object.assign({}, p, { inStock: !p.soldOut, priceStyle: 'font-size:15px;font-weight:600;color:' + (p.soldOut ? '#707070' : '#000') }));
+    const faq = [
+      { q: 'Jak vybrat správnou velikost?', a: 'U každého produktu najdeš velikostní tabulku. Střihy se liší podle modelu – pokud si nejsi jistý, napiš nám nebo si oblečení přijď vyzkoušet do Panské 7.' },
+      { q: 'Je oblečení v e-shopu originální?', a: 'Ano. Cartoon-Shop je oficiální distributor Carhartt WIP pro ČR a SK a veškeré zboží pochází z oficiální distribuce značek.' },
+      { q: 'Můžu si oblečení vyzkoušet v prodejně?', a: 'Ano. Vyber si online, zvol osobní odběr a v Panské 7 si oblečení před zaplacením vyzkoušíš.' },
+      { q: 'Jak rychle oblečení doručíte?', a: 'Objednávky do 12:00 doručujeme další pracovní den.' },
+      { q: 'Můžu oblečení vrátit nebo vyměnit?', a: 'Ano, oblečení můžeš vrátit do 14 dní.' }
+    ];
+    return {
+      footCols: [
+        { title: 'Pro zákazníky', links: [{ t: 'Jak nakupovat', href: '#' }, { t: 'Doprava a platba', href: '#' }, { t: 'Rezervace zboží', href: '#' }, { t: 'Vrácení a výměna', href: '#' }, { t: 'Reklamace', href: '#' }, { t: 'Velikostní tabulky', href: '#' }, { t: 'Dárkové poukazy', href: '#' }] },
+        { title: 'Smluvní podmínky', links: [{ t: 'Obchodní podmínky', href: '#' }, { t: 'Odstoupení od smlouvy', href: '#' }, { t: 'Ochrana osobních údajů', href: '#' }, { t: 'Cookies', href: '#' }, { t: 'Pravidla akce kachna', href: '#' }] },
+        { title: 'O nás', links: [{ t: 'Proč Cartoon', href: 'index.html' }, { t: 'Prodejna Panská 7', href: 'prodejna.html' }, { t: 'Carhartt WIP Praha', href: 'carhartt-wip-praha.html' }, { t: 'Historie Carhartt WIP', href: 'historie.html' }, { t: 'Distribuce Carhartt WIP CZ/SK', href: 'distribuce.html' }, { t: 'Značky', href: 'katalog.html' }, { t: 'Práce', href: '#' }, { t: 'Spolupráce', href: '#' }] }
+      ].map((c, i) => ({ title: c.title, links: c.links, open: this.state.foot === i, expanded: this.state.foot === i ? 'true' : 'false', sign: this.state.foot === i ? '−' : '+', toggle: () => this.setState({ foot: this.state.foot === i ? -1 : i }) })),
+      accent: '#00A151',
+      menuOpen: menu, menuClosed: !menu, menuExpanded: menu ? 'true' : 'false', toggleMenu: () => this.setState({ menu: !menu }),
+      subcats: [{ label: 'Bundy', img: 'img/2d5d9cac99b90ebc9f0cf2247fe48a25.jpg' }, { label: 'Mikiny', img: 'img/662a2e293e329cf034174a079e583e70.jpg' }, { label: 'Trička', img: 'img/afd7d4828111bd9eee20ee45c4c52658.jpg' }, { label: 'Kalhoty', img: 'img/b5954f82c5fe9dfe2e3280646b053e97.jpg' }, { label: 'Košile', img: 'img/b9fa3898c821f2101e70e4c916121d0b.jpg' }, { label: 'Svetry', img: 'img/962160f8eaeffd1fc7ca485005c274a8.jpg' }, { label: 'Kraťasy', img: 'img/899f8f8270a82b3ff80dfedb1072d212.jpg' }, { label: 'Vesty', img: 'img/e431d23a2bb6f0bafa52c33d72944322.jpg' }],
+      drawerOpen: st.drawer, drawerExpanded: st.drawer ? 'true' : 'false', toggleDrawer: () => this.setState({ drawer: !st.drawer }),
+      activeCountLabel: active.length ? ' (' + active.length + ')' : '',
+      filters, toggles, active, hasActive: active.length > 0, clearAll: () => this.setState({ sel: {}, tog: {} }),
+      first: items.slice(0, 4), rest: items.slice(4),
+      seoOpen: st.seo, seoExpanded: st.seo ? 'true' : 'false', seoLabel: st.seo ? 'Zobrazit méně' : 'Číst více', toggleSeo: () => this.setState({ seo: !st.seo }),
+      faqs: faq.map((f, i) => ({ q: f.q, a: f.a, open: st.faq === i, expanded: st.faq === i ? 'true' : 'false', sign: st.faq === i ? '−' : '+', toggle: () => this.setState({ faq: st.faq === i ? -1 : i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

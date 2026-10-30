@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Mobilní menu – Oblečení</title>
+</head>
+<body>
+<template id="x-dc">
+<helmet>
+<style>
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:400;src:url(img/1e1321f388e34db8b2e794b91d35f268.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:600;src:url(img/f4469fd3f08bc29d491d8cea58b02134.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:700;src:url(img/25d77fd3cc86c5ee7a077a742301b66a.woff2) format("woff2");font-display:swap}
+body{margin:0;background:#fff}
+a{color:#000}a:not([style*="background"]):not([style*="border"]):not([style*="flex-direction: column"]):hover{color:#00A151 !important;text-decoration:underline !important;text-underline-offset:3px}
+.arr{display:inline-block;flex:0 0 auto;transition:transform .2s ease-in}a:hover .arr,button:hover .arr{transform:translateX(8px)}
+:focus-visible{outline:2px solid #00A151 !important;outline-offset:2px}input:focus,select:focus,textarea:focus{outline:2px solid #00A151 !important;outline-offset:0;border-color:#00A151 !important}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 844px; font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff">
+
+<div style="padding: 12px 8px; display: flex; align-items: center; gap: 4px; border-bottom: 1px solid #ddd">
+<a href="menu.html" style="min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 8px; text-decoration: none; font-size: 15px; font-weight: 600; margin-right: auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>Zpět</a>
+<a href="index.html" aria-label="Zavřít menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
+</div>
+
+<div style="padding: 18px 16px 6px">
+<div style="font-size: 13px; color: #555">Muži</div>
+<h2 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 600">Oblečení</h2>
+<a href="katalog.html" style="display: inline-block; margin-top: 6px; font-size: 15px; font-weight: 600">Zobrazit vše v Oblečení <span class="arr">→</span></a>
+</div>
+
+<nav aria-label="Oblečení – podkategorie">
+<ul style="list-style: none; margin: 8px 0 0; padding: 0">
+<sc-for list="{{subs}}" as="c" hint-placeholder-count="10">
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; align-items: center; gap: 14px; min-height: 60px; padding: 6px 16px; text-decoration: none; font-size: 18px; line-height: 22px; font-weight: 600"><img src="{{c.img}}" alt="" width="48" height="48" style="width: 48px; height: 48px; object-fit: contain; background: #fff; display: block; flex: 0 0 auto">{{c.label}}</a></li>
+</sc-for>
+</ul>
+</nav>
+
+<section aria-labelledby="mb2-h" style="padding: 20px 16px 36px">
+<h3 id="mb2-h" style="margin: 0 0 10px; font-size: 13px; line-height: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em">Oblečení podle značky</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<a href="carhartt-wip-praha.html" style="min-height: 44px; padding: 0 14px; border: 1px solid #000; display: inline-flex; align-items: center; text-decoration: none; font-size: 15px; font-weight: 600">Carhartt WIP</a>
+<a href="katalog.html" style="min-height: 44px; padding: 0 14px; border: 1px solid #000; display: inline-flex; align-items: center; text-decoration: none; font-size: 15px; font-weight: 600">The Dudes</a>
+<a href="katalog.html" style="min-height: 44px; padding: 0 14px; border: 1px solid #000; display: inline-flex; align-items: center; text-decoration: none; font-size: 15px; font-weight: 600">Iriedaily</a>
+<a href="katalog.html" style="min-height: 44px; padding: 0 14px; border: 1px solid #000; display: inline-flex; align-items: center; text-decoration: none; font-size: 15px; font-weight: 600">Edwin</a>
+<a href="katalog.html" style="min-height: 44px; padding: 0 14px; border: 1px solid #000; display: inline-flex; align-items: center; text-decoration: none; font-size: 15px; font-weight: 600">Stetson</a>
+</div>
+</section>
+
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":950}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { subs: [{ label: 'Bundy', img: 'img/2d5d9cac99b90ebc9f0cf2247fe48a25.jpg' }, { label: 'Mikiny', img: 'img/662a2e293e329cf034174a079e583e70.jpg' }, { label: 'Trička', img: 'img/afd7d4828111bd9eee20ee45c4c52658.jpg' }, { label: 'Kalhoty', img: 'img/b5954f82c5fe9dfe2e3280646b053e97.jpg' }, { label: 'Košile', img: 'img/b9fa3898c821f2101e70e4c916121d0b.jpg' }, { label: 'Svetry', img: 'img/962160f8eaeffd1fc7ca485005c274a8.jpg' }, { label: 'Kraťasy', img: 'img/899f8f8270a82b3ff80dfedb1072d212.jpg' }, { label: 'Vesty', img: 'img/e431d23a2bb6f0bafa52c33d72944322.jpg' }, { label: 'Plavky', img: 'img/7b173d4e744203e7a9781c58c0a3b7e9.jpg' }, { label: 'Spodní prádlo', img: 'img/2161d46804daa4cab7e27c3eaf7a93d2.jpg' }] };
+  }
+}
+</script>
+</body>
+</html>

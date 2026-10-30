@@ -1,0 +1,8 @@
+zerops:
+  - setup: web
+    build:
+      base: nodejs@latest
+      deployFiles:
+        - public/~
+    run:
+      base: static

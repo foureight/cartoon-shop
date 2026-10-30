@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Dodací údaje – mobil</title>
+</head>
+<body>
+<template id="x-dc">
+<helmet>
+<style>
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:400;src:url(img/1e1321f388e34db8b2e794b91d35f268.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:600;src:url(img/f4469fd3f08bc29d491d8cea58b02134.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:700;src:url(img/25d77fd3cc86c5ee7a077a742301b66a.woff2) format("woff2");font-display:swap}
+body{margin:0;background:#fff}
+a{color:#000}a:not([style*="background"]):not([style*="border"]):not([style*="flex-direction: column"]):hover{color:#00A151 !important;text-decoration:underline !important;text-underline-offset:3px}
+.arr{display:inline-block;flex:0 0 auto;transition:transform .2s ease-in}a:hover .arr,button:hover .arr{transform:translateX(8px)}
+:focus-visible{outline:2px solid #00A151 !important;outline-offset:2px}input:focus,select:focus,textarea:focus{outline:2px solid #00A151 !important;outline-offset:0;border-color:#00A151 !important}
+input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
+</style>
+</helmet>
+<div style="width: 100%; overflow: hidden; font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff">
+<header style="border-bottom: 1px solid #ddd">
+<div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between">
+<a href="index.html" aria-label="Cartoon – úvod"><img src="img/6b673a984f403c01ecd9985d2700a26c.svg" alt="cartoon" style="width: 96px; height: auto; display: block"></a>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #555"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Bezpečný nákup</span>
+</div>
+<nav aria-label="Kroky objednávky" style="padding: 0 16px 12px">
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px"><li style="height: 4px; background: #000"></li><li aria-current="step" style="height: 4px; background: #000"></li><li style="height: 4px; background: #e8eaeb"></li><li style="height: 4px; background: #e8eaeb"></li></ol>
+<div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px"><b>2. Dodací údaje</b><span style="color: #555">Další: Doprava a platba</span></div>
+</nav>
+</header>
+<section aria-label="Shrnutí objednávky" style="background: #f4f4f4">
+<button type="button" onClick="{{toggleSum}}" aria-expanded="{{sumExpanded}}" style="width: 100%; min-height: 56px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; background: none; border: 0; font-family: FKGrotesk, sans-serif; font-size: 15px; color: #000"><span style="text-decoration: underline">{{sumLabel}}</span><b style="font-size: 17px">{{total}}</b></button>
+<sc-if value="{{sumOpen}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 0 16px 16px; display: flex; flex-direction: column; gap: 14px">
+<ul style="list-style: none; margin: 0; padding: 6px 0 0; display: flex; flex-direction: column; gap: 12px"><sc-for list="{{lines}}" as="l" hint-placeholder-count="3">
+<li style="display: flex; gap: 12px; align-items: center"><span style="flex: 0 0 56px; height: 70px; background: #f4f4f4; position: relative"><img src="{{l.img}}" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block"><span style="position: absolute; top: -6px; right: -6px; min-width: 20px; height: 20px; background: #000; color: #fff; font-size: 11px; line-height: 20px; text-align: center; border-radius: 10px">{{l.qty}}</span></span><span style="flex: 1 1 auto; min-width: 0; font-size: 14px; line-height: 18px"><b style="display: block">{{l.name}}</b><span style="color: #555">vel. {{l.size}}</span></span><span style="font-size: 14px; font-weight: 600; white-space: nowrap">{{l.price}}</span></li>
+</sc-for></ul>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; font-size: 15px"><dt>Mezisoučet</dt><dd style="margin: 0; text-align: right">9 730 Kč</dd>
+<dt>Doprava</dt><dd style="margin: 0; text-align: right">{{shipPrice}}</dd>
+<dt>Platba</dt><dd style="margin: 0; text-align: right">{{payPrice}}</dd>
+<dt style="font-size: 20px; font-weight: 700; padding-top: 12px; border-top: 1px solid #000">Celkem</dt><dd style="margin: 0; text-align: right; font-size: 20px; font-weight: 700; padding-top: 12px; border-top: 1px solid #000">{{total}}</dd></dl>
+</div>
+</sc-if>
+</section>
+<main style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 32px">
+<h1 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Dodací údaje</h1>
+<section aria-labelledby="c-h">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2 id="c-h" style="margin: 0 0 14px; font-size: 20px; line-height: 1.3; font-weight: 600">Kontakt</h2><span style="font-size: 14px">Máš účet? <a href="#" style="font-weight: 600">Přihlas se</a></span></div>
+<div style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 14px 16px"><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="em" style="font-size: 14px; line-height: 18px; font-weight: 600">E-mail <span aria-hidden="true">*</span></label><input id="em" type="email" autocomplete="email" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="ph" style="font-size: 14px; line-height: 18px; font-weight: 600">Telefon <span aria-hidden="true">*</span></label><input id="ph" type="tel" autocomplete="tel" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div></div>
+<p style="margin: 8px 0 0; font-size: 13px; color: #555; line-height: 1.55">Na e-mail pošleme potvrzení, na telefon ti napíše dopravce.</p>
+</section>
+<section aria-labelledby="a-h">
+<h2 id="a-h" style="margin: 0 0 14px; font-size: 20px; line-height: 1.3; font-weight: 600">Dodací adresa</h2>
+<div style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 14px 16px"><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="fn" style="font-size: 14px; line-height: 18px; font-weight: 600">Jméno <span aria-hidden="true">*</span></label><input id="fn" type="text" autocomplete="given-name" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="ln" style="font-size: 14px; line-height: 18px; font-weight: 600">Příjmení <span aria-hidden="true">*</span></label><input id="ln" type="text" autocomplete="family-name" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="st" style="font-size: 14px; line-height: 18px; font-weight: 600">Ulice a číslo popisné <span aria-hidden="true">*</span></label><input id="st" type="text" autocomplete="street-address" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="ct" style="font-size: 14px; line-height: 18px; font-weight: 600">Město <span aria-hidden="true">*</span></label><input id="ct" type="text" autocomplete="address-level2" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="zip" style="font-size: 14px; line-height: 18px; font-weight: 600">PSČ <span aria-hidden="true">*</span></label><input id="zip" type="text" autocomplete="postal-code" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px"><label for="co" style="font-size: 14px; line-height: 18px; font-weight: 600">Země <span aria-hidden="true">*</span></label><select id="co" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"><option>Česká republika</option><option>Slovensko</option></select></div></div>
+<p style="margin: 10px 0 0; font-size: 13px; color: #555; line-height: 1.55">Adresu použijeme pro doručení i fakturu. Dopravu (i osobní odběr v Panské 7) vybereš v dalším kroku.</p>
+</section>
+<section aria-label="Další možnosti" style="display: flex; flex-direction: column; gap: 6px">
+<label style="display: flex; gap: 12px; align-items: flex-start; min-height: 44px; font-size: 15px; line-height: 22px; cursor: pointer"><input type="checkbox" checked="{{company}}" onChange="{{toggleCompany}}" style="width: 20px; height: 20px; margin: 1px 0 0; accent-color: #00A151; flex: 0 0 auto">Nakupuji na firmu</label>
+<sc-if value="{{company}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 14px 16px"><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="cn" style="font-size: 14px; line-height: 18px; font-weight: 600">Název firmy <span aria-hidden="true">*</span></label><input id="cn" type="text" autocomplete="organization" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="ico" style="font-size: 14px; line-height: 18px; font-weight: 600">IČO <span aria-hidden="true">*</span></label><input id="ico" type="text" autocomplete="" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="dic" style="font-size: 14px; line-height: 18px; font-weight: 600">DIČ <span style="font-weight: 400; color: #555">(nepovinné)</span></label><input id="dic" type="text" autocomplete="" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div></div>
+</sc-if>
+<label style="display: flex; gap: 12px; align-items: flex-start; min-height: 44px; font-size: 15px; line-height: 22px; cursor: pointer"><input type="checkbox" checked="{{other}}" onChange="{{toggleOther}}" style="width: 20px; height: 20px; margin: 1px 0 0; accent-color: #00A151; flex: 0 0 auto">Doručit na jinou adresu</label>
+<sc-if value="{{other}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 14px 16px"><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="ofn" style="font-size: 14px; line-height: 18px; font-weight: 600">Jméno a příjmení <span aria-hidden="true">*</span></label><input id="ofn" type="text" autocomplete="" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="ost" style="font-size: 14px; line-height: 18px; font-weight: 600">Ulice a číslo popisné <span aria-hidden="true">*</span></label><input id="ost" type="text" autocomplete="" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="oct" style="font-size: 14px; line-height: 18px; font-weight: 600">Město <span aria-hidden="true">*</span></label><input id="oct" type="text" autocomplete="" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div><div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><label for="ozip" style="font-size: 14px; line-height: 18px; font-weight: 600">PSČ <span aria-hidden="true">*</span></label><input id="ozip" type="text" autocomplete="" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; width: 100%; box-sizing: border-box; background: #fff"></div></div>
+</sc-if>
+<div style="display: flex; flex-direction: column; gap: 6px; margin-top: 10px"><label for="note" style="font-size: 14px; line-height: 18px; font-weight: 600">Poznámka k objednávce <span style="font-weight: 400; color: #555">(nepovinné)</span></label><textarea id="note" rows="3" style="padding: 12px 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; resize: vertical"></textarea></div>
+<div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #ddd; display: flex; flex-direction: column; gap: 4px">
+<label style="display: flex; gap: 12px; align-items: flex-start; min-height: 44px; font-size: 15px; line-height: 22px; cursor: pointer"><input type="checkbox" checked="{{account}}" onChange="{{toggleAccount}}" style="width: 20px; height: 20px; margin: 1px 0 0; accent-color: #00A151; flex: 0 0 auto">Vytvořit účet – příště nakoupíš rychleji a uvidíš historii objednávek</label>
+<label style="display: flex; gap: 12px; align-items: flex-start; min-height: 44px; font-size: 15px; line-height: 22px; cursor: pointer"><input type="checkbox" checked="{{news}}" onChange="{{toggleNews}}" style="width: 20px; height: 20px; margin: 1px 0 0; accent-color: #00A151; flex: 0 0 auto">Chci dostávat novinky, slevy a akce e-mailem</label>
+</div>
+</section>
+<div style="display: flex; flex-direction: column; gap: 8px"><a href="doprava-a-platba.html" style="min-height: 56px; width: 100%; background: #00A151; color: #fff; border: 0; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-family: FKGrotesk, sans-serif; font-size: 17px; font-weight: 600; cursor: pointer; box-sizing: border-box">Pokračovat k dopravě a platbě <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><a href="kosik.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 600">← Zpět do košíku</a></div>
+</main>
+<footer style="background: #000; color: #aaa; font-size: 12px; line-height: 18px; margin-top: 48px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px">
+<span>© 2026 T-Bone s.r.o. – Všechna práva vyhrazena</span>
+<span>design by <a href="https://forejt.net" style="color: #aaa">forejt.net</a> · font <a href="https://fonts.floriankarsten.com" style="color: #aaa">FK Grotesk – fonts.floriankarsten.com</a></span>
+</div>
+</footer>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2000}}'>
+const __IM = [["painter", ["img/d18f7531223f5c88ec0969e736a07851.jpg"]], ["i hartt", ["img/bbfd46df3eb242c68611dbadfe5b9b0e.jpg"]], ["snake nixon", ["img/b4099b0ef18faa06282d162a5e71082a.jpg"]], ["terrace", ["img/2e7517d11d7d13e8244719af39eaa41b.jpg"]], ["rosomako", ["img/bead53d063b2575e72bc7b84ea194ce8.jpg"]], ["switchup", ["img/e2fdfeec5139935e5b80df5158ead084.jpg"]], ["paddy", ["img/d888ff68c434095d2008f375dfa78253.jpg"]], ["mini flag", ["img/e5d4fb3937ff3a770ae586b27d792ccb.jpg"]], ["peaceride", ["img/883c35523ac9fb4bd914ef7f0681a851.jpg"]], ["love in the books", ["img/52e183412998859da7be0a3c8100622f.jpg"]], ["slot machine", ["img/a35abc4b63584a235f735873c116f1cb.jpg"]], ["pouch", ["img/3d02a129d1c7bf75371d16d34cda43ac.jpg"]], ["double pack", ["img/a3a57d700c3b1a8583509f9d5807cc3b.jpg"]], ["w belt", ["img/a0aaeb981260a4f5cf62d1eb736ef618.jpg"]], ["diner", ["img/cfb07384ff76c689c23023eaba34f473.jpg"]], ["trucker cap vintage", ["img/1586ca77bcdac6c19ab691401db64069.jpg"]], ["lettering", ["img/cd9a0914236d1b4222aed749f95e0789.jpg"]], ["trucker cap fun", ["img/5ab4903e310c90f24b83a229a16f30c8.jpg"]], ["baseball cap retro", ["img/570584b89578abbcc600b86c946c7681.jpg"]], ["og detroit", ["img/0abc48c292684f71fdb13d1a34ad42e0.jpg", "img/41c31f5da98755d25ea50ba4c50f9ef4.jpg", "img/fdee50cac25af322e16c01794412f1c3.jpg"]], ["detroit jacket", ["img/30cbc66f68fa256c9c78123d97f37534.jpg"]], ["og active", ["img/98ba6360e239882c64531c39c5b7a525.jpg", "img/49c9c7ae682b0d38dc35b5cce12fe30a.jpg", "img/4ac645a433631e43b20099d0c85e70f8.jpg"]], ["active sweat", ["img/6b3f85b7a98020ef1733c90ffa758a17.jpg"]], ["landon", ["img/27e4f9e422550949c6a935550417fdbc.jpg"]], ["newel", ["img/27e4f9e422550949c6a935550417fdbc.jpg"]], ["belmar", ["img/7f1b304f33b29192360b1a7e13dba494.jpg"]], ["payson", ["img/62eb0d6d4ee9648aafc627a15d340a14.jpg", "img/9b0017b327cf52f5e7261412bbd65f44.jpg"]], ["lavine", ["img/d353bdc5c85329b33c96c416a1931d40.jpg"]], ["blackletter", ["img/98c92d47eacc6841346b36f71c3dbda4.jpg"]], ["limn c fleece", ["img/ae8f89a24a088a3220148a3bb2fabcb7.jpg"]], ["casey", ["img/ae8f89a24a088a3220148a3bb2fabcb7.jpg"]], ["hooded chase", ["img/1383ee50b56a690ec44dc338465dfcd4.jpg"]], ["chase hoodie", ["img/1383ee50b56a690ec44dc338465dfcd4.jpg"]], ["chase", ["img/54042ffb43e33510e7e4944fe8704dbf.jpg"]], ["gabe", ["img/28a6c9d99ddc3dd555e9c1d1bb4329d6.jpg"]], ["acrylic", ["img/b91cc3332d2b06331175824e9ba34bdc.jpg"]], ["kreuzkoelln", ["img/eff5b0ef74e5f27ea3dc7083764ec38b.jpg"]], ["vista", ["img/b5b48a9c1a938b9dc0bf55e418f8203b.jpg"]], ["arizona", ["img/19def54ca21fe88d840f9640bbf861ac.jpg"]], ["santa fe", ["img/cfd0fe8bbf4ffab3788f1a59d2663d57.jpg"]], ["orman", ["img/994306012429a6871bdc6196bcf5769c.jpg"]], ["michigan", ["img/03635ee0413eecfae5b05fc2ba7e9b6c.jpg"]], ["double knee", ["img/656a5846ee836a633f5b3ea36a547886.jpg"]], ["script", ["img/301c46833ca058cfb34ed0681687ef8f.jpg"]], ["sezónní bundy", ["img/98ba6360e239882c64531c39c5b7a525.jpg"]]];
+const __CAT = {"Mikiny": "img/1383ee50b56a690ec44dc338465dfcd4.jpg", "Bundy": "img/0abc48c292684f71fdb13d1a34ad42e0.jpg", "Kalhoty": "img/656a5846ee836a633f5b3ea36a547886.jpg", "Kraťasy": "img/b4099b0ef18faa06282d162a5e71082a.jpg", "Trička": "img/301c46833ca058cfb34ed0681687ef8f.jpg", "Doplňky": "img/28a6c9d99ddc3dd555e9c1d1bb4329d6.jpg"};
+const __PR = {"Chase Hoodie": ["2 290 Kč"], "Chase Crewneck": ["1 990 Kč"], "Double Knee Pant": ["3 790 Kč"], "Michigan Coat": ["4 950 Kč"], "Script T-Shirt": ["1 150 Kč"], "Mini Flag 2 Zip Hood": ["2 250 Kč"], "Double Pack SS Tee": ["990 Kč"], "Trucker Cap Vintage": ["1 190 Kč"], "Rosomako Flannel Shirt": ["2 150 Kč"], "Peaceride Emb Tee": ["1 090 Kč"], "Paddy Shoulder Bag": ["1 250 Kč"], "Love In The Books TS": ["990 Kč"], "Slot Machine TS": ["890 Kč"], "Pouch Leather": ["990 Kč"], "Trucker Cap Steton's Diner": ["1 190 Kč"], "Trucker Cap Lettering": ["1 190 Kč"], "Trucker Cap Fun": ["1 250 Kč"], "Baseball Cap Retro": ["990 Kč"], "Painter Sweat": ["2 490 Kč", "3 290 Kč"], "W' S/S I Hartt T-Shirt": ["790 Kč", "1 150 Kč"], "W' Snake Nixon Double Knee Short": ["1 990 Kč", "2 990 Kč"], "S/S Terrace Football T-Shirt": ["1 690 Kč", "2 290 Kč"], "Detroit Jacket (jarní/letní)": ["4 550 Kč"], "S/S Limn Script T-Shirt": ["1 150 Kč"]};
+function __addImg(v) {
+  const ic = {};
+  const pick = n => { n = String(n || '').toLowerCase(); const e = __IM.find(x => n.indexOf(x[0]) >= 0); if (!e) return ''; const i = ic[e[0]] = (ic[e[0]] === undefined ? 0 : ic[e[0]] + 1); return e[1][i % e[1].length]; };
+  const walk = (o, key) => {
+    if (Array.isArray(o)) return key === 'categories' ? o.map(c => typeof c === 'string' ? { label: c, img: __CAT[c] || '' } : Object.assign({}, c, { img: c.img || __CAT[c.label] || '' })) : o.map(x => walk(x, key));
+    if (o && typeof o === 'object' && Object.getPrototypeOf(o) === Object.prototype) {
+      const r = {};
+      for (const k in o) r[k] = (typeof o[k] === 'function') ? o[k] : walk(o[k], k);
+      if (typeof r.name === 'string' && !r.img) { r.img = pick(r.name); const p = __PR[r.name]; if (p && typeof r.price === 'string' && r.price.indexOf('[cena]') >= 0) { r.price = p[0]; if (p[1] && 'oldPrice' in r) r.oldPrice = p[1]; } }
+      return r;
+    }
+    return o;
+  };
+  return walk(v, '');
+}
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { ship: 0, pay: 0, sum: false, company: false, other: false, account: false, news: false }; }
+  renderVals() { return __addImg(this.__rv()); }
+  __rv() {
+    const st = this.state;
+    const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' Kč';
+    const LINES = [{ name: 'OG Detroit Jacket', size: 'M', qty: 1, price: '6 350 Kč' }, { name: 'Chase Sweat', size: 'L', qty: 1, price: '1 990 Kč' }, { name: 'Gabe Beanie', size: 'uni', qty: 1, price: '1 390 Kč' }];
+    const SHIP = [['Osobní odběr – Panská 7', 0], ['[Výdejní místo – dopravce]', null], ['[Kurýr na adresu – dopravce]', null], ['[Doručení na Slovensko]', null]];
+    const PAY = [['Kartou online', 0], ['Apple Pay / Google Pay', 0], ['Bankovním převodem', 0], ['Hotově nebo kartou v prodejně', 0]];
+    const ship = st.ship, pay = st.pay;
+    const shipCost = SHIP[ship][1];
+    const common = {
+      lines: LINES,
+      shipPrice: 'v dalším kroku',
+      payPrice: 'zdarma',
+      total: fmt(9730) + ' + doprava',
+      sumOpen: !!st.sum, sumExpanded: st.sum ? 'true' : 'false', sumLabel: st.sum ? 'Skrýt shrnutí' : 'Zobrazit shrnutí (3 položky)', toggleSum: () => this.setState({ sum: !st.sum })
+    };
+    const t = k => () => this.setState({ [k]: !st[k] });
+    return Object.assign(common, {
+      company: st.company, other: st.other, account: st.account, news: st.news,
+      toggleCompany: t('company'), toggleOther: t('other'), toggleAccount: t('account'), toggleNews: t('news')
+    });
+  }
+}
+</script>
+</body>
+</html>

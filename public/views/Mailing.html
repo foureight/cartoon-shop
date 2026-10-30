@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Mailing – Archive drop</title>
+</head>
+<body>
+<template id="x-dc">
+<helmet>
+<style>
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:400;src:url(img/1e1321f388e34db8b2e794b91d35f268.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:600;src:url(img/f4469fd3f08bc29d491d8cea58b02134.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:700;src:url(img/25d77fd3cc86c5ee7a077a742301b66a.woff2) format("woff2");font-display:swap}
+body{margin:0;background:#e9ebe9}
+a{color:#000}
+.arr{display:inline-block;transition:transform .2s ease-in}a:hover .arr{transform:translateX(6px)}
+</style>
+</helmet>
+<div style="width: 680px; background: #e9ebe9; padding: 24px 0 40px; font-family: FKGrotesk, Arial, Helvetica, sans-serif; color: #000; box-sizing: border-box">
+
+<!-- PREHEADER -->
+<div style="width: 600px; margin: 0 auto 10px; display: flex; justify-content: space-between; font-size: 11px; line-height: 16px; color: #5c5f5d">
+<span>Archive drop je tady – v omezeném množství, online i v Panské 7.</span>
+<a href="#" style="color: #5c5f5d">Zobrazit v prohlížeči</a>
+</div>
+
+<div style="width: 600px; margin: 0 auto; background: #fff">
+
+<!-- HLAVIČKA -->
+<div style="padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e3e5e3">
+<a href="index.html" aria-label="Cartoon – úvod"><img src="img/6b673a984f403c01ecd9985d2700a26c.svg" alt="cartoon" style="width: 120px; height: auto; display: block"></a>
+<div style="display: flex; gap: 18px; font-size: 13px; font-weight: 600"><a href="katalog.html" style="text-decoration: none">Novinky</a><a href="carhartt-wip-praha.html" style="text-decoration: none">Carhartt WIP</a><a href="katalog.html" style="text-decoration: none; color: #F59700">Slevy</a></div>
+</div>
+
+<!-- HERO -->
+<a href="katalog.html" style="display: block; position: relative; height: 440px; overflow: hidden; text-decoration: none; color: #fff">
+<img src="img/5aa16c0daa3a266df57b6ad7947ed508.jpg" alt="Carhartt WIP Archive" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block">
+<span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.7) 100%)"></span>
+<span style="position: absolute; left: 32px; right: 32px; bottom: 32px; display: flex; flex-direction: column; gap: 12px">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase"><span style="width: 28px; height: 4px; background: #00A151"></span>Nový drop</span>
+<span style="font-size: 44px; line-height: 1.02; font-weight: 700; letter-spacing: -0.02em">Carhartt WIP<br>Archive</span>
+</span>
+</a>
+
+<!-- ÚVODNÍ TEXT -->
+<div style="padding: 32px 32px 8px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 17px; line-height: 1.6">Ahoj,<br>do Panské 7 dorazily archivní kousky Carhartt WIP – modely, které se vracejí jen v omezeném množství. Některé velikosti máme po jednom kusu, tak neváhej.</p>
+<a href="katalog.html" style="align-self: flex-start; min-height: 52px; padding: 0 26px; background: #00A151; color: #fff; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 16px; font-weight: 600">Prohlédnout drop <span class="arr" style="color: #000">→</span></a>
+</div>
+
+<!-- PRODUKTY -->
+<div style="padding: 32px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px"><h2 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 600">Co přesně dorazilo</h2><a href="katalog.html" style="font-size: 14px; font-weight: 600">Vše z dropu →</a></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px">
+<sc-for list="{{products}}" as="p" hint-placeholder-count="4">
+<a href="produkt.html" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #000">
+<span style="position: relative; display: block; aspect-ratio: 4 / 5; background: #f4f4f4"><img src="{{p.img}}" alt="{{p.name}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block"><span style="position: absolute; top: 8px; left: 8px; background: #00A151; color: #fff; font-size: 11px; line-height: 14px; padding: 4px 6px; font-weight: 600">{{p.tag}}</span></span>
+<span style="font-size: 12px; color: #5c5f5d">Carhartt WIP</span>
+<span style="font-size: 16px; line-height: 1.3; font-weight: 600; margin-top: -6px">{{p.name}}</span>
+<span style="font-size: 15px; font-weight: 600">{{p.price}}</span>
+</a>
+</sc-for>
+</div>
+</div>
+
+<!-- AKCE KACHNA -->
+<a href="katalog.html" style="margin: 0 32px; display: flex; background: #00A151; color: #fff; text-decoration: none">
+<img src="img/374f256905e4d457f2090ee360332301.jpg" alt="Akce kachna 2+1" style="width: 220px; height: 220px; object-fit: cover; display: block; flex: 0 0 auto">
+<span style="padding: 24px; display: flex; flex-direction: column; justify-content: center; gap: 10px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase">Akce</span>
+<span style="font-size: 26px; line-height: 1.15; font-weight: 700">Kachna 2+1 pokračuje</span>
+<span style="font-size: 15px; line-height: 1.5">Vyber si 3 věci a tu nejlevnější z nich máš za kačku.</span>
+<span style="font-size: 15px; font-weight: 600; color: #000">Nakupovat <span class="arr">→</span></span>
+</span>
+</a>
+
+<!-- PRODEJNA -->
+<div style="padding: 40px 32px 32px; display: flex; gap: 20px; align-items: center">
+<img src="img/a7fb1cb917507138a399821a8e27ebe3.jpg" alt="Prodejna Panská 7" style="width: 260px; height: 200px; object-fit: cover; display: block; flex: 0 0 auto">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 22px; line-height: 1.2; font-weight: 600">Přijď si to vyzkoušet</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2d2d2d">Celý drop máme i v prodejně v Panské 7, Praha 1. Po–So 10–19, Ne 10–18.</p>
+<a href="prodejna.html" style="font-size: 15px; font-weight: 600">Kudy k nám →</a>
+</div>
+</div>
+
+<!-- PATIČKA -->
+<div style="background: #000; color: #aaa; padding: 32px; display: flex; flex-direction: column; gap: 18px; font-size: 13px; line-height: 1.55">
+<img src="img/9e02a3c4c4f34496a20132ff2c3d1be5.svg" alt="cartoon" style="width: 110px; height: auto; display: block">
+<div style="display: flex; gap: 10px">
+<a href="#" aria-label="Instagram" style="width: 36px; height: 36px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
+<a href="#" aria-label="Facebook" style="width: 36px; height: 36px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 22v-8h3l.5-4H14V8c0-1 .4-2 2-2h1.7V2.5c-.8-.1-1.8-.2-2.7-.2-2.8 0-4.5 1.7-4.5 4.7V10H7.5v4h3v8"></path></svg></a>
+<a href="#" aria-label="YouTube" style="width: 36px; height: 36px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+</div>
+<span>Cartoon · Panská 7, 110 00 Praha 1 · <a href="tel:+420224267486" style="color: #fff">+420 224 267 486</a> · obchod@cartoon.cz<br>Oficiální distributor Carhartt WIP pro ČR a SK.</span>
+<span>Tento e-mail ti posíláme, protože odebíráš novinky z cartoon-shop.cz. <a href="#" style="color: #fff">Odhlásit odběr</a> · <a href="#" style="color: #fff">Upravit nastavení</a></span>
+</div>
+
+</div>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":2400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      products: [
+        { name: 'OG Detroit Jacket', price: '6 350 Kč', tag: 'Archive', img: 'img/0abc48c292684f71fdb13d1a34ad42e0.jpg' },
+        { name: 'Michigan Coat', price: '4 950 Kč', tag: 'Archive', img: 'img/03635ee0413eecfae5b05fc2ba7e9b6c.jpg' },
+        { name: 'Double Knee Pant', price: '3 790 Kč', tag: 'Novinka', img: 'img/656a5846ee836a633f5b3ea36a547886.jpg' },
+        { name: 'Chase Hoodie', price: '2 290 Kč', tag: 'Novinka', img: 'img/1383ee50b56a690ec44dc338465dfcd4.jpg' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

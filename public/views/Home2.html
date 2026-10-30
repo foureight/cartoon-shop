@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Cartoon-Shop – homepage (2/2)</title>
+</head>
+<body>
+<template id="x-dc">
+<helmet>
+<style>
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:300;src:url(img/ce9b1a0918863c84b2d777d718880298.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:400;src:url(img/1e1321f388e34db8b2e794b91d35f268.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:600;src:url(img/f4469fd3f08bc29d491d8cea58b02134.woff2) format("woff2");font-display:swap}
+@font-face{font-family:FKGrotesk;font-style:normal;font-weight:700;src:url(img/25d77fd3cc86c5ee7a077a742301b66a.woff2) format("woff2");font-display:swap}
+body{margin:0;background:#fff}
+a{color:#000}a:not([style*="background"]):not([style*="border"]):not([style*="flex-direction: column"]):hover{color:#00A151 !important;text-decoration:underline !important;text-underline-offset:3px}
+.arr{display:inline-block;flex:0 0 auto;transition:transform .2s ease-in}a:hover .arr,button:hover .arr{transform:translateX(8px)}
+:focus-visible{outline:2px solid #00A151 !important;outline-offset:2px}input:focus,select:focus,textarea:focus{outline:2px solid #00A151 !important;outline-offset:0;border-color:#00A151 !important}
+input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
+</style>
+</helmet>
+<div style="font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff; width: 100%; min-width: 0">
+<!-- NEWSLETTER -->
+
+
+<!-- ZNAČKY -->
+<section aria-labelledby="nl-h" style="background: #000; color: #fff">
+<div style="max-width: 1360px; margin: 0 auto; padding: 56px 24px; display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 360px; min-width: 0"><h2 id="nl-h" style="margin: 0 0 6px; font-size: 26px; line-height: 1.25; font-weight: 600">Přihlaš se do našeho mailingu</h2><p style="margin: 0; color: #ddd">Novinky, nové dropy, SLEVY a akce jako první.</p></div>
+<form style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<label for="hnl" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">E-mail</label>
+<input id="hnl" type="email" placeholder="tvuj@email.cz" style="flex: 1 1 220px; min-width: 0; min-height: 52px; padding: 0 16px; border: 0; font-family: FKGrotesk, sans-serif; font-size: 16px">
+<button type="submit" style="min-height: 52px; padding: 0 28px; background: {{accent}}; color: #fff; border: 0; font-family: FKGrotesk, sans-serif; font-size: 16px; font-weight: 600; cursor: pointer">Přihlásit se</button>
+</div>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 18px; color: #ddd"><input type="checkbox" style="width: 18px; height: 18px; margin: 0; flex: 0 0 auto">souhlasím se zpracováním údajů dle pravidel GDPR a chci být informován o novinkách, slevách a akcích</label>
+</form>
+</div>
+</section><section aria-labelledby="br-h" style="max-width: 1360px; margin: 0 auto; padding: 72px 24px; border-bottom: 1px solid #ddd">
+<h2 id="br-h" style="margin: 0 0 24px; font-size: 26px; line-height: 1.25; font-weight: 600">Značky, které vedeme</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: #ddd; border: 1px solid #ddd">
+<a href="carhartt-wip-praha.html" style="background: #fff; min-height: 110px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #555; font-size: 14px">[LOGO Carhartt WIP]</a>
+<a href="katalog.html" style="background: #fff; min-height: 110px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #555; font-size: 14px">[LOGO Iriedaily]</a>
+<a href="katalog.html" style="background: #fff; min-height: 110px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #555; font-size: 14px">[LOGO Edwin]</a>
+<a href="katalog.html" style="background: #fff; min-height: 110px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #555; font-size: 14px">[LOGO The Dudes]</a>
+<a href="katalog.html" style="background: #fff; min-height: 110px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #555; font-size: 14px">[LOGO Stetson]</a>
+</div>
+</section>
+
+<!-- FAQ -->
+<section aria-labelledby="faq-h" style="max-width: 1360px; margin: 0 auto; padding: 96px 24px">
+<h2 id="faq-h" style="margin: 0 0 28px; font-size: 32px; line-height: 1.2; font-weight: 600">Časté dotazy</h2>
+<div style="border-top: 1px solid #000">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="border-bottom: 1px solid #ddd">
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; font-weight: 600">
+<button type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; min-height: 64px; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; background: none; border: 0; text-align: left; font-family: FKGrotesk, sans-serif; font-size: 20px; line-height: 26px; font-weight: 600; color: #000; cursor: pointer">{{f.q}}<span aria-hidden="true" style="flex: 0 0 auto; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid #000; color: #00A151; box-sizing: border-box; font-size: 20px; font-weight: 600">{{f.sign}}</span></button>
+</h3>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 48px 24px 0; max-width: 880px; font-size: 16px; line-height: 1.65">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- PANORAMA PRODEJNY -->
+<div style="height: 440px; background: #ddd; display: flex; align-items: center; justify-content: center; color: #555; font-size: 14px; position: relative; overflow: hidden"><img src="img/8edb0855b1832c7b8196a30612b05768.jpg" alt="Panoramatická fotka prodejny Cartoon, Panská 7" draggable="false" style="{{panStyle}}"><div style="position: absolute; right: 12px; top: 12px; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.78); color: #fff; padding: 6px 8px; font-size: 12px; line-height: 16px; font-weight: 600"><button type="button" onClick="{{panLeft}}" aria-label="Posunout panorama doleva" style="width: 36px; height: 36px; border: 0; background: #fff; color: #000; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center">←</button><input type="range" min="0" max="100" step="1" value="{{panVal}}" onChange="{{panInput}}" aria-label="Projdi celý obchod" style="width: 140px; accent-color: #00A151; cursor: ew-resize"><button type="button" onClick="{{panRight}}" aria-label="Posunout panorama doprava" style="width: 36px; height: 36px; border: 0; background: #fff; color: #000; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center">→</button></div></div>
+
+<!-- MAPA + KONTAKT -->
+<section id="kontakt" aria-labelledby="kon-h" style="max-width: 1360px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 560px; min-width: 0; min-height: 520px; background: #fff; position: relative; display: flex; align-items: center; justify-content: center; color: #555; font-size: 14px; overflow: hidden"><img src="img/b4e079ff204e6d644d6c0ae808232c2a.jpg" alt="Mapa okolí prodejny Panská 7, Praha 1" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block"><span style="position: absolute; right: 0; bottom: 0; background: rgba(255,255,255,0.85); color: #555; font-size: 10px; line-height: 14px; padding: 2px 6px">© OpenStreetMap</span>
+<span style="position: absolute; top: 50%; left: 50%; width: 20px; height: 20px; margin: -10px 0 0 -10px; background: #000; border: 4px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px #000"></span>
+<div style="position: absolute; left: 24px; top: 24px; background: #000; color: #fff; padding: 20px 24px; font-size: 15px; line-height: 22px">
+<h4 style="margin: 0 0 4px; font-size: 18px; line-height: 22px; font-weight: 600">Cartoon – Panská 7</h4>
+<div>Panská 7, 110 00 Praha 1</div>
+<div>Po–So 10–19 · Ne 10–18</div>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h2 id="kon-h" style="margin: 0; font-size: 32px; line-height: 1.2; font-weight: 600">Kontaktujte nás</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.65">Dotaz na velikost, dostupnost nebo rezervaci? Napiš nám, nebo volej <a href="tel:+420224267486" style="font-weight: 600">+420 224 267 486</a>.</p>
+<form style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="cn" style="font-size: 13px; line-height: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em">Jméno</label><input id="cn" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="ce" style="font-size: 13px; line-height: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em">E-mail</label><input id="ce" type="email" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="ct" style="font-size: 13px; line-height: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em">Telefon</label><input id="ct" type="tel" style="min-height: 50px; padding: 0 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="cm" style="font-size: 13px; line-height: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em">Zpráva</label><textarea id="cm" rows="4" style="padding: 12px 14px; border: 1px solid #000; font-family: FKGrotesk, sans-serif; font-size: 16px; resize: vertical"></textarea></div>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 18px; color: #555"><input type="checkbox" style="width: 18px; height: 18px; margin: 0; flex: 0 0 auto">souhlasím s GDPR pravidly</label>
+<button type="submit" style="align-self: flex-start; min-height: 52px; padding: 0 28px; background: #00A151; color: #fff; border: 0; font-family: FKGrotesk, sans-serif; font-size: 16px; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; cursor: pointer">Odeslat zprávu <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+</form>
+</div>
+</section>
+
+<!-- USP STRIP -->
+<section aria-label="Výhody nákupu" style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd">
+<div style="max-width: 1360px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))">
+<div style="padding: 28px 20px 28px 0; display: flex; gap: 14px; align-items: flex-start"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="flex: 0 0 auto"><path d="M3 10l9-6 9 6"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg><div><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Osobní odběr zdarma</h3><div style="font-size: 14px; line-height: 20px; color: #555">Rezervuj online, vyzvedni v Panské 7</div></div></div>
+<div style="padding: 28px 20px 28px 0; display: flex; gap: 14px; align-items: flex-start"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="flex: 0 0 auto"><path d="M8 3L3 6v5l3-.5V21h12V10.5l3 .5V6l-5-3c-.5 2-2 3-4 3S8.5 5 8 3z"></path></svg><div><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Vše skladem</h3><div style="font-size: 14px; line-height: 20px; color: #555">Co skladem nemáme, rychle objednáme</div></div></div>
+<div style="padding: 28px 20px 28px 0; display: flex; gap: 14px; align-items: flex-start"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="flex: 0 0 auto"><path d="M2 7h11v10H2zM13 10h4l4 4v3h-8"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><div><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Rychlé dodání</h3><div style="font-size: 14px; line-height: 20px; color: #555">Objednej do 12:00, doručíme další pracovní den</div></div></div>
+<div style="padding: 28px 20px 28px 0; display: flex; gap: 14px; align-items: flex-start"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="flex: 0 0 auto"><path d="M20 8A8 8 0 0 0 5 6M5 2v4h4M4 16a8 8 0 0 0 15 2M19 22v-4h-4"></path></svg><div><h3 style="margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600">Garance výměny</h3><div style="font-size: 14px; line-height: 20px; color: #555">Oblečení můžeš vrátit do 14 dní</div></div></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #293038; color: #fff; font-size: 15px; line-height: 22px">
+<div style="max-width: 1360px; margin: 0 auto; padding: 64px 24px 40px; display: flex; flex-wrap: wrap; gap: 40px 48px">
+<div style="flex: 1 1 280px; min-width: 0; max-width: 340px; display: flex; flex-direction: column; gap: 20px">
+<a href="index.html" aria-label="Cartoon – úvod" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none">
+<img src="img/9e02a3c4c4f34496a20132ff2c3d1be5.svg" alt="cartoon" style="width: 140px; height: auto; display: block">
+</a>
+<p style="margin: 0; color: #e8eaeb">Streetwear v centru Prahy. Oficiální distributor Carhartt WIP pro Českou republiku a Slovensko.</p>
+<div style="display: flex; gap: 8px">
+<a href="#" aria-label="Instagram" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.5"></circle></svg></a>
+<a href="#" aria-label="Facebook" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 22v-8h3l.5-4H14V8c0-1 .4-2 2-2h1.7V2.5c-.8-.1-1.8-.2-2.7-.2-2.8 0-4.5 1.7-4.5 4.7V10H7.5v4h3v8"></path></svg></a>
+<a href="#" aria-label="YouTube" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+<a href="#" aria-label="SoundCloud" style="width: 44px; height: 44px; border: 1px solid #5a6570; color: #fff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17v-3M6 17v-5M9 17V9M12 17V7.5h3.5a5 5 0 0 1 5 4.6A3 3 0 0 1 18 17z"></path></svg></a>
+</div>
+</div>
+<div style="flex: 3 1 640px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><h4 style="margin: 0 0 6px; font-size: 16px; line-height: 22px; font-weight: 600; color: #00A151">Pro zákazníky</h4><a href="#" style="color: #e8eaeb; text-decoration: none">Jak nakupovat</a><a href="#" style="color: #e8eaeb; text-decoration: none">Doprava a platba</a><a href="#" style="color: #e8eaeb; text-decoration: none">Rezervace zboží</a><a href="#" style="color: #e8eaeb; text-decoration: none">Vrácení a výměna</a><a href="#" style="color: #e8eaeb; text-decoration: none">Reklamace</a><a href="#" style="color: #e8eaeb; text-decoration: none">Velikostní tabulky</a><a href="#" style="color: #e8eaeb; text-decoration: none">Dárkové poukazy</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h4 style="margin: 0 0 6px; font-size: 16px; line-height: 22px; font-weight: 600; color: #00A151">Smluvní podmínky</h4><a href="#" style="color: #e8eaeb; text-decoration: none">Obchodní podmínky</a><a href="#" style="color: #e8eaeb; text-decoration: none">Odstoupení od smlouvy</a><a href="#" style="color: #e8eaeb; text-decoration: none">Ochrana osobních údajů</a><a href="#" style="color: #e8eaeb; text-decoration: none">Cookies</a><a href="#" style="color: #e8eaeb; text-decoration: none">Pravidla akce kachna</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h4 style="margin: 0 0 6px; font-size: 16px; line-height: 22px; font-weight: 600; color: #00A151">O nás</h4><a href="index.html" style="color: #e8eaeb; text-decoration: none">Proč Cartoon</a><a href="prodejna.html" style="color: #e8eaeb; text-decoration: none">Prodejna Panská 7</a><a href="carhartt-wip-praha.html" style="color: #e8eaeb; text-decoration: none">Carhartt WIP Praha</a><a href="historie.html" style="color: #e8eaeb; text-decoration: none">Historie Carhartt WIP</a><a href="distribuce.html" style="color: #e8eaeb; text-decoration: none">Distribuce Carhartt WIP CZ/SK</a><a href="katalog.html" style="color: #e8eaeb; text-decoration: none">Značky</a><a href="#" style="color: #e8eaeb; text-decoration: none">Práce</a><a href="#" style="color: #e8eaeb; text-decoration: none">Spolupráce</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h4 style="margin: 0 0 6px; font-size: 16px; line-height: 22px; font-weight: 600; color: #00A151">Kontakt</h4><span style="color: #e8eaeb">Panská 7<br>110 00 Praha 1</span><a href="tel:+420224267486" style="color: #fff; text-decoration: none; font-weight: 600">+420 224 267 486</a><a href="mailto:obchod@cartoon.cz" style="color: #e8eaeb">obchod@cartoon.cz</a>
+<h5 style="margin: 8px 0 0; font-size: 13px; line-height: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #fff">Otevírací doba</h5><span style="color: #e8eaeb">Po–So 10:00–19:00<br>Ne 10:00–18:00</span></div>
+</div>
+</div>
+<div style="max-width: 1360px; margin: 0 auto; padding: 24px; border-top: 1px solid #3a434d; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<h5 style="margin: 0 8px 0 0; font-size: 13px; line-height: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em">Platba</h5>
+<span style="min-width: 56px; height: 32px; padding: 0 10px; box-sizing: border-box; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700">[VISA]</span>
+<span style="min-width: 56px; height: 32px; padding: 0 10px; box-sizing: border-box; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700">[Mastercard]</span>
+<span style="min-width: 56px; height: 32px; padding: 0 10px; box-sizing: border-box; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700">[Apple Pay]</span>
+<span style="min-width: 56px; height: 32px; padding: 0 10px; box-sizing: border-box; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700">[Google Pay]</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<h5 style="margin: 0 8px 0 0; font-size: 13px; line-height: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em">Doprava</h5>
+<span style="height: 32px; padding: 0 12px; border: 1px solid #5a6570; display: flex; align-items: center; font-size: 12px; color: #e8eaeb">[dopravce 1]</span>
+<span style="height: 32px; padding: 0 12px; border: 1px solid #5a6570; display: flex; align-items: center; font-size: 12px; color: #e8eaeb">[dopravce 2]</span>
+<span style="height: 32px; padding: 0 12px; border: 1px solid #5a6570; display: flex; align-items: center; font-size: 12px; color: #e8eaeb">Osobní odběr Panská 7</span>
+</div>
+<div style="display: flex; align-items: center; gap: 4px; font-size: 14px" aria-label="Měna">
+<a href="#" style="color: #fff; font-weight: 600; text-decoration: none; padding: 10px 8px">CZK</a><span style="color: #5a6570">/</span><a href="#" style="color: #aaa; text-decoration: none; padding: 10px 8px">EUR</a>
+</div>
+</div>
+<div style="background: #000; color: #aaa; font-size: 13px; line-height: 18px">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px">
+<span>© 2026 T-Bone s.r.o. – Všechna práva vyhrazena</span>
+<span>design by <a href="https://forejt.net" style="color: #aaa">forejt.net</a> · font <a href="https://fonts.floriankarsten.com" style="color: #aaa">FK Grotesk – fonts.floriankarsten.com</a></span>
+</div>
+</div>
+</footer>
+
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"embedded":{"editor":null,"default":false},"accent":{"editor":"color","default":"#00A151","options":["#00A151","#F59700","#F04E37","#000000"]},"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { slide: 0, faq: 0 };
+  }
+  renderVals() { return Object.assign(this.__rv0(), this.__pan()); }
+  __pan() {
+    const p = this.state.pan ?? 0;
+    const set = v => this.setState({ pan: Math.max(0, Math.min(100, Math.round(v))) });
+    return { panVal: String(p), panStyle: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:' + p + '% center;display:block;transition:object-position .45s ease;user-select:none', panLeft: () => set(p - 20), panRight: () => set(p + 20), panInput: e => set(+e.target.value) };
+  }
+  __rv0() {
+    const accent = this.props.accent ?? '#00A151';
+    const slides = [
+      { kicker: 'Nový drop', title: 'Carhartt WIP\nArchive', text: 'Návrat archivních kousků Carhartt WIP – v omezeném množství, online i v Panské 7.', cta: 'Mrkni se', photo: 'kampaň Carhartt WIP Archive' },
+      { kicker: 'Nová kolekce', title: 'Jaro / léto\n2026', text: 'Nová sezóna Carhartt WIP, Iriedaily a Edwin je skladem.', cta: 'Prohlédnout kolekci', photo: 'lookbook jaro/léto 2026' },
+      { kicker: 'Akce', title: 'Akce kachna\npokračuje', text: '[Krátký popis akce kachna – pravidla a odměna.]', cta: 'Jak to funguje', photo: 'akce kachna' },
+      { kicker: 'Panská 7', title: 'Přijď si to\nvyzkoušet', text: 'Kamenná prodejna v centru Prahy. Po–So 10–19, Ne 10–18.', cta: 'Kudy k nám', photo: 'prodejna Panská 7' }
+    ];
+    const s = this.state.slide;
+    const n = slides.length;
+    const P = (brand, name, tag, tagBg) => ({ brand, name, tag: tag || '', tagBg: tagBg || '#00A151', hasTag: !!tag, sale: false, full: true, price: '[cena] Kč', oldPrice: '', sizesLabel: 'S · M · L · XL' });
+    const S = (brand, name, pct) => ({ brand, name, tag: pct, tagBg: '#00A151', hasTag: true, sale: true, full: false, price: '[cena] Kč', oldPrice: '[cena] Kč', sizesLabel: 'M · L' });
+    const brand = (b, kicker, text, items) => ({
+      kicker, title: b, bar: '#000', text, link: 'Vše od ' + b,
+      products: items.map((x, i) => P(b, x, i === 0 ? 'Novinka' : '', '#000'))
+    });
+    const faq = [
+      { q: 'Co prodává Cartoon-Shop?', a: 'Streetwear a workwear značek Carhartt WIP, Iriedaily, Edwin, Stetson a dalších – oblečení, batohy, tašky, doplňky i boty. Nakupovat můžeš online nebo v prodejně v Panské 7.' },
+      { q: 'Jste oficiální distributor Carhartt WIP?', a: 'Ano. Cartoon-Shop je autorizovaný distributor značky Carhartt WIP pro Českou republiku a Slovensko.' },
+      { q: 'Můžu si zboží rezervovat a vyzvednout v prodejně?', a: 'Ano. Vyber si online, zvol osobní odběr a vyzvedni si zboží v Panské 7 – na místě si ho můžeš i vyzkoušet.' },
+      { q: 'Jak rychle doručujete?', a: 'Objednávky do 12:00 doručujeme další pracovní den.' },
+      { q: 'Můžu zboží vrátit nebo vyměnit?', a: 'Ano, oblečení můžeš vrátit do 14 dní.' }
+    ];
+    const fo = this.state.faq;
+    return {
+      newsGap: '0',
+      accent,
+      slide: slides[s],
+      slideCounter: (s + 1) + ' / ' + n,
+      prevSlide: () => this.setState({ slide: (s + n - 1) % n }),
+      nextSlide: () => this.setState({ slide: (s + 1) % n }),
+      categories: ['Kalhoty', 'Bundy', 'Trička', 'Mikiny', 'Kraťasy', 'Doplňky'],
+      rows: [
+        { kicker: 'Právě dorazilo', title: 'Novinky u nás v obchodě', bar: accent, link: 'Všechny novinky',
+          text: 'Co nového přišlo tento týden do Panské 7 a na e-shop. Nové zboží doplňujeme průběžně, sleduj i náš mailing.',
+          products: [P('Carhartt WIP', 'Chase Hoodie', 'Novinka'), P('Iriedaily', '[Název produktu]', 'Novinka'), P('Edwin', '[Název produktu]', 'Novinka'), P('Stetson', '[Název produktu]', 'Novinka')] },
+        brand('Carhartt WIP', 'Oficiální distributor', 'Workwear z Detroitu převedený do ulic. Jako oficiální distributor pro ČR a SK máme největší výběr v zemi – od Double Knee kalhot po Michigan Coat.',
+          ['Double Knee Pant', 'Michigan Coat', 'Script T-Shirt', 'Chase Crewneck']),
+        brand('Iriedaily', 'Berlín', 'Berlínský streetwear s vlastním rukopisem – mikiny, bundy, trička a doplňky do města.',
+          ['[Název produktu]', '[Název produktu]', '[Název produktu]', '[Název produktu]']),
+        brand('Edwin', 'Japonský denim', 'Japonský denim s dlouhou tradicí. Kvalitní džíny, chino kalhoty a trička.',
+          ['[Název produktu]', '[Název produktu]', '[Název produktu]', '[Název produktu]']),
+        brand('Stetson', 'Klobouky a čepice', 'Klasické klobouky, kšiltovky a čepice. Doplňky, které vydrží roky.',
+          ['[Název produktu]', '[Název produktu]', '[Název produktu]', '[Název produktu]']),
+        { kicker: 'Výprodej', title: 'Slevy, co u nás najdete', bar: '#f59700', link: 'Všechny slevy',
+          text: 'Vybrané kousky z minulých sezón za nižší ceny. Velikosti mizí rychle.',
+          products: [S('Carhartt WIP', '[Název produktu]', '−50 %'), S('Iriedaily', '[Název produktu]', '−30 %'), S('Edwin', '[Název produktu]', '−30 %'), S('Stetson', '[Název produktu]', '−20 %')] }
+      ],
+      news: [
+        { tag: 'Mailing', date: '[datum]', title: 'Archive drop: co přesně dorazilo', text: 'Kompletní přehled archivních kousků Carhartt WIP, které jsou teď skladem.', cta: 'Číst mailing' },
+        { tag: 'Akce', date: '[datum]', title: 'Akce kachna pokračuje', text: '[Krátký perex – jak akce kachna funguje a do kdy platí.]', cta: 'Více o akci' },
+        { tag: 'Prodejna', date: '[datum]', title: 'Nová kolekce v Panské 7', text: 'Jaro / léto 2026 je na věšácích. Přijď si ji vyzkoušet.', cta: 'Kudy k nám' }
+      ],
+      faqs: faq.map((f, i) => ({
+        q: f.q, a: f.a, open: fo === i,
+        expanded: fo === i ? 'true' : 'false',
+        sign: fo === i ? '−' : '+',
+        toggle: () => this.setState({ faq: fo === i ? -1 : i })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
