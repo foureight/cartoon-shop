@@ -36,7 +36,7 @@ Při změně šířky okna se pohled přepne bez obnovení stránky (breakpoint
 ## Struktura
 
 - `public/*.html` – malé „shelly“ stránek (viewport meta, React, runtime)
-- `public/views/` – šablony (včetně vnořených Home2, HomeMobile2, Mobile2)
+- `public/views/` – šablony (včetně vnořené Mobile2)
 - `public/runtime.js` – renderer šablon a přepínání desktop/mobil
 - `public/img/`, `public/vendor/` – obrázky, fonty a React 18 (UMD)
 - `zerops.yml` – nasazení obsahu `public/` jako statické služby
