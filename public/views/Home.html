@@ -20,6 +20,7 @@ nav[aria-label="Hlavní menu"] a,nav[aria-label="Hlavní menu"] button{outline:n
 a[style*="#F59700"]:hover{color:#F59700 !important;text-decoration:underline !important;text-decoration-color:#F59700 !important;text-underline-offset:3px;border-bottom-color:#F59700 !important}
 nav[aria-label="Hlavní menu"] a[data-sale="true"],nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{color:#F59700 !important}nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{font-weight:600 !important;text-decoration:none !important;border-bottom-color:#F59700 !important}
 input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
+@keyframes heroFill{from{width:0}to{width:100%}}
 </style>
 </helmet>
 <div style="font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff; width: 100%; min-width: 0">
@@ -112,11 +113,7 @@ input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="carhartt-wip-praha.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 28px; background: #fff; color: #000; text-decoration: none; font-weight: 600">{{slide.cta}} <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
-<div style="display: flex; align-items: center; gap: 4px; margin-top: 8px">
-<button type="button" onClick="{{prevSlide}}" aria-label="Předchozí snímek" style="width: 44px; height: 44px; border: 1px solid #fff; background: none; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
-<button type="button" onClick="{{nextSlide}}" aria-label="Další snímek" style="width: 44px; height: 44px; border: 1px solid #fff; background: none; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
-
-</div>
+<div role="group" aria-label="Snímky" style="position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2"><sc-for list="{{dots}}" as="d" hint-placeholder-count="4"><button type="button" onClick="{{d.go}}" aria-label="{{d.label}}" aria-current="{{d.cur}}" style="width: 44px; height: 32px; padding: 0; background: none; border: 0; display: flex; align-items: center; cursor: pointer"><span style="position: relative; display: block; width: 100%; height: 3px; background: rgba(255,255,255,0.35); overflow: hidden"><span style="{{d.fill}}"></span></span></button></sc-for></div>
 </div>
 
 </div>
@@ -391,6 +388,9 @@ class Component extends DCLogic {
     super(props);
     this.state = { mega: null, slide: 0, faq: 0 };
   }
+  componentDidMount() { this.__auto(); }
+  componentWillUnmount() { clearInterval(this.__t); }
+  __auto() { clearInterval(this.__t); this.__t = setInterval(() => this.setState(st => ({ slide: (st.slide + 1) % 4 })), 5000); }
   renderVals() { return Object.assign(__addImg(this.__rv()), this.__pan()); }
   __pan() {
     const p = this.state.pan ?? 0;
@@ -447,6 +447,9 @@ class Component extends DCLogic {
       accent,
       slide: slides[s],
       slideCounter: (s + 1) + ' / ' + n,
+      dots: slides.map((_, i) => ({ label: 'Snímek ' + (i + 1) + ' z ' + n, cur: i === s ? 'true' : 'false',
+        fill: 'position: absolute; left: 0; top: 0; bottom: 0; background: #fff; ' + (i === s ? 'animation: heroFill 5s linear forwards' : (i < s ? 'width: 100%' : 'width: 0')),
+        go: () => { this.setState({ slide: i }); this.__auto(); } })),
       prevSlide: () => this.setState({ slide: (s + n - 1) % n }),
       nextSlide: () => this.setState({ slide: (s + 1) % n }),
       categories: ['Kalhoty', 'Bundy', 'Trička', 'Mikiny', 'Kraťasy', 'Doplňky'],
