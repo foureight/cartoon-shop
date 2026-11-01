@@ -110,6 +110,20 @@ div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{border-color:#00
 <span style="font-size: 14px; line-height: 20px; color: #555">{{genderLabel}}</span>
 <a href="{{mega.allHref}}" style="font-size: 15px; font-weight: 600">{{mega.all}} <span class="arr">→</span></a>
 </div>
+<sc-if value="{{mega.isOutfits}}" hint-placeholder-val="{{ false }}">
+<div style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 32px">
+<sc-for list="{{mega.outfits}}" as="o" hint-placeholder-count="4">
+<article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="katalog.html" style="display: block; position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #f4f4f4; text-decoration: none"><img src="{{o.img}}" alt="{{o.alt}}" loading="lazy" style="{{o.imgStyle}}"></a>
+<h3 style="margin: 0; font-size: 17px; line-height: 22px; font-weight: 700">{{o.name}}</h3>
+<ul style="list-style: none; margin: 0; padding: 0; font-size: 14px; line-height: 18px; border-top: 1px solid #ddd">
+<sc-for list="{{o.items}}" as="it" hint-placeholder-count="3"><li style="border-bottom: 1px solid #ddd"><a href="produkt.html" style="display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; text-decoration: none"><span>{{it.n}}</span><span style="white-space: nowrap; font-weight: 600">{{it.p}}</span></a></li></sc-for>
+</ul>
+<a href="kosik.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 40px; padding: 0 12px; background: #000; color: #fff; text-decoration: none; font-size: 14px; font-weight: 600">Koupit celý outfit<span>{{o.total}}</span></a>
+</article>
+</sc-for>
+</div>
+</sc-if>
 <sc-for list="{{mega.cols}}" as="col" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
 <h3 style="margin: 0 0 6px; font-size: 17px; line-height: 22px; font-weight: 700">{{col.h}}</h3>
@@ -118,6 +132,7 @@ div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{border-color:#00
 </ul>
 </div>
 </sc-for>
+<sc-if value="{{mega.tile}}" hint-placeholder-val="{{ true }}">
 <a href="katalog.html" style="grid-column: 5; grid-row: 2; position: relative; overflow: hidden; background: #293038; color: #fff; text-decoration: none; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: 20px; min-height: 300px">
 <img src="{{mega.outfitImg}}" alt="" loading="lazy" style="{{mega.outfitStyle}}"><span style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0) 70%)"></span>
 <span style="position: relative; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em">Inspirace</span>
@@ -125,6 +140,7 @@ div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{border-color:#00
 <span style="position: relative; font-size: 14px; line-height: 19px; color: #e8eaeb">{{mega.outfitText}}</span>
 <span style="position: relative; font-size: 15px; font-weight: 600; margin-top: 4px">Prohlédnout <span class="arr">→</span></span>
 </a>
+</sc-if>
 <button type="button" onClick="{{closeMega}}" aria-label="Zavřít menu" style="position: absolute; top: 16px; right: 12px; width: 44px; height: 44px; background: none; border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
 </div>
@@ -361,11 +377,19 @@ class Component extends DCLogic {
           doplnky: { title: 'Doplňky', all: 'Všechny doplňky', outfitImg: 'img/28a6c9d99ddc3dd555e9c1d1bb4329d6.jpg', outfitStyle: 'position:absolute;inset:0;width:100%;height:100%;display:block;background:#f4f4f4;object-fit:contain', outfitText: 'Doplňky, které outfit dotáhnou', cols: [
             C('Na hlavu', ['Kšiltovky', 'Kulichy', 'Bekovky', 'Klobouky']),
             C('Drobnosti', ['Pásky', 'Peněženky', 'Ponožky', 'Šály', 'Rukavice', 'Brýle', 'Ostatní'])] },
+          outfity: { title: 'Outfity', all: 'Všechny outfity', isOutfits: true, tile: false, cols: [], outfits: [
+            { name: 'Navy zip na každý den', img: 'img/2d9d2ebfd3f145128c91ac8b7ac55a5f.jpg', alt: 'Outfit s tmavě modrou mikinou na zip', pos: '50% 35%', items: [['Chase Hoodie', 2290], ['S/S Limn Script T-Shirt', 1150], ['Double Knee Pant', 3790]] },
+            { name: 'Hnědá v páru', img: 'img/2672d3e49af6de9d2095ed10a393cbd8.jpg', alt: 'Dva outfity v hnědých mikinách', pos: '50% 30%', items: [['Chase Crewneck', 1990], ['Painter Sweat', 2490], ['Double Knee Pant', 3790]] },
+            { name: 'Camo do města', img: 'img/5aa16c0daa3a266df57b6ad7947ed508.jpg', alt: 'Camo kalhoty a taška přes rameno', pos: '45% 50%', items: [['Double Knee Pant', 3790], ['Peaceride Emb Tee', 1090], ['Paddy Shoulder Bag', 1250]] },
+            { name: 'Kapuce a vrstvy', img: 'img/b2f7c56f62c182e07ca23ca216adc0de.jpg', alt: 'Outfit s kapucí a maskáčovou bundou', pos: '50% 30%', items: [['Detroit Jacket (jarní/letní)', 4550], ['Chase Hoodie', 2290], ['Trucker Cap Vintage', 1190]] }
+          ].map(o => { const kc = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' Kč'; return { name: o.name, img: o.img, alt: o.alt,
+            imgStyle: 'position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:' + o.pos,
+            items: o.items.map(([n, p]) => ({ n, p: kc(p) })), total: kc(o.items.reduce((s, x) => s + x[1], 0)) }; }) },
           znacky: { title: 'Značky', all: 'Všechny značky', outfitImg: OI, outfitText: 'Outfity podle značek', cols: [
             C('Značky', [{ t: 'Carhartt WIP', href: 'carhartt-wip-praha.html' }, 'Edwin', 'IrieDaily', 'Stetson', 'The Dudes']),
             C('Carhartt WIP', [{ t: 'Carhartt WIP Praha', href: 'carhartt-wip-praha.html' }, { t: 'Historie značky', href: 'historie.html' }, { t: 'Distribuce CZ/SK', href: 'distribuce.html' }])] }
         };
-        const N = [['novinky', 'Novinky', 1], ['obleceni', 'Oblečení', 1], ['boty', 'Boty', 1], ['tasky', 'Batohy a tašky', 1], ['doplnky', 'Doplňky', 1], ['znacky', 'Značky', 1], ['slevy', 'Slevy', 0]];
+        const N = [['novinky', 'Novinky', 1], ['obleceni', 'Oblečení', 1], ['boty', 'Boty', 1], ['tasky', 'Batohy a tašky', 1], ['doplnky', 'Doplňky', 1], ['znacky', 'Značky', 1], ['outfity', 'Outfity', 1], ['slevy', 'Slevy', 0]];
         const G = [['panske', 'Muži'], ['damske', 'Ženy'], ['vse', 'Vše']];
         const gen = this.state.gen || 'vse';
         const base = 'display:flex;align-items:center;gap:6px;padding:12px 10px;min-height:48px;box-sizing:border-box;background:none;border:0;font-family:FKGrotesk,sans-serif;font-size:16px;line-height:20px;font-weight:600;text-decoration:none;cursor:pointer;';
@@ -383,7 +407,7 @@ class Component extends DCLogic {
         const sCats = ql ? CATS.filter(c => c.t.toLowerCase().indexOf(ql) >= 0).slice(0, 5).map(c => hit(c.t, { href: c.href, where: c.where })) : [];
         const sProds = ql ? PRODS.filter(p => p[0].toLowerCase().indexOf(ql) >= 0).slice(0, 6).map(p => hit(p[0], { where: p[1] })) : [];
         return {
-          megaOpen: !!mg, mega: Object.assign({ allHref: 'katalog.html', outfitStyle: 'position:absolute;inset:0;width:100%;height:100%;display:block;background:#f4f4f4;object-fit:cover;object-position:center' }, M[mg] || M.obleceni), closeMega: () => this.setState({ mega: null }),
+          megaOpen: !!mg, mega: Object.assign({ allHref: 'katalog.html', tile: true, isOutfits: false, outfits: [], outfitStyle: 'position:absolute;inset:0;width:100%;height:100%;display:block;background:#f4f4f4;object-fit:cover;object-position:center' }, M[mg] || M.obleceni), closeMega: () => this.setState({ mega: null }),
           sq, sopen, sopenStr: sopen ? 'true' : 'false', sEmpty: !ql, sTyped: !!ql,
           sCats, sProds, sHasCats: sCats.length > 0, sHasProds: sProds.length > 0, sNone: !!ql && !sCats.length && !sProds.length,
           sPopular: ['Detroit Jacket', 'Double Knee', 'Mikiny s kapucí', 'Kšiltovky', 'Carhartt WIP', 'Kulichy'].map(t => ({ t, pick: () => this.setState({ sq: t, sopen: true }) })),
