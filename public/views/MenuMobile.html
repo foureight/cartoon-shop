@@ -41,7 +41,7 @@ div[aria-label="Oddělení"] button:hover{color:#00A151 !important}
 
 <nav aria-label="Hlavní menu" style="margin-top: 8px">
 <ul style="list-style: none; margin: 0; padding: 0; font-size: 20px; line-height: 24px; font-weight: 600">
-<li style="border-bottom: 1px solid #ddd"><a href="novinky.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 16px; text-decoration: none">Novinky<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 16px; text-decoration: none">Novinky<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
 <li style="border-bottom: 1px solid #ddd"><a href="menu-obleceni.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 16px; text-decoration: none">Oblečení<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
 <li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 16px; text-decoration: none">Boty<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
 <li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 16px; text-decoration: none">Batohy a tašky<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a></li>
@@ -82,7 +82,7 @@ class Component extends DCLogic {
       tabs: T.map((t, i) => {
         const on = this.state.tab === i;
         return { label: t, pressed: on ? 'true' : 'false',
-          style: 'min-height:48px;background:#fff;border:0;border-bottom:3px solid ' + (on ? '#00A151' : 'transparent') + ';font-family:FKGrotesk,sans-serif;font-size:16px;cursor:pointer;' + (on ? 'color:#00A151;font-weight:600' : 'color:#000;font-weight:400'),
+          style: 'min-height:48px;background:#fff;border:0;border-bottom:3px solid ' + (on ? '#00A151' : 'transparent') + ';font-family:FKGrotesk,sans-serif;font-size:16px;cursor:pointer;' + (on ? 'color:#00A151;font-weight:700' : 'color:#000;font-weight:700'),
           pick: () => this.setState({ tab: i }) };
       })
     };
