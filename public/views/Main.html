@@ -21,6 +21,7 @@ a[style*="#F59700"]:hover{color:#F59700 !important;text-decoration:underline !im
 input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
 nav[aria-label="Hlavní menu"] a[data-sale="true"],nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{color:#F59700 !important}nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{font-weight:600 !important;text-decoration:none !important;border-bottom-color:#F59700 !important}
 div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{border-color:#000 !important}div[aria-label="Oddělení"] button{outline:none !important}div[aria-label="Oddělení"] button:focus-visible{outline:2px solid #00A151 !important;outline-offset:-2px}
+span[aria-label="Oddělení v menu"] button[aria-pressed="false"]:hover{border-color:#000 !important}span[aria-label="Oddělení v menu"] button{outline:none !important}span[aria-label="Oddělení v menu"] button:focus-visible{outline:2px solid #00A151 !important;outline-offset:2px}
 </style>
 </helmet>
 <div style="font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff; width: 100%; min-width: 0">
@@ -110,7 +111,9 @@ div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{border-color:#00
 <div style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 36px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 32px; position: relative">
 <div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; padding-right: 56px">
 <h2 style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 700">{{mega.title}}</h2>
-<span style="font-size: 14px; line-height: 20px; color: #555">{{genderLabel}}</span>
+<span role="group" aria-label="Oddělení v menu" style="display: inline-flex; gap: 6px; align-self: center">
+<sc-for list="{{megaGenders}}" as="mg" hint-placeholder-count="2"><button type="button" aria-pressed="{{mg.pressed}}" aria-label="{{mg.aria}}" onClick="{{mg.pick}}" style="{{mg.style}}">{{mg.label}}<sc-if value="{{mg.x}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="font-size: 13px; line-height: 1">×</span></sc-if></button></sc-for>
+</span>
 <a href="{{mega.allHref}}" style="font-size: 15px; font-weight: 600">{{mega.all}} <span class="arr">→</span></a>
 </div>
 <sc-if value="{{mega.isOutfits}}" hint-placeholder-val="{{ false }}">
@@ -469,6 +472,10 @@ class Component extends DCLogic {
           openSearch: () => this.setState({ sopen: true, mega: null }),
           closeSearch: () => this.setState({ sopen: false }),
           genderLabel: gen === 'vse' ? 'Muži i ženy' : (gen === 'panske' ? 'Muži' : 'Ženy'),
+          megaGenders: [['panske', 'Muži'], ['damske', 'Ženy']].map(([k, l]) => { const on = gen === k;
+            return { label: l, x: on, pressed: on ? 'true' : 'false', aria: on ? l + ' – zrušit výběr' : l,
+              style: 'display:inline-flex;align-items:center;gap:6px;padding:0 8px;min-height:28px;box-sizing:border-box;font-family:FKGrotesk,sans-serif;font-size:13px;line-height:16px;font-weight:600;cursor:pointer;' + (on ? 'color:#fff;background:#000;border:1px solid #000;' : 'color:#000;background:#fff;border:1px solid #ddd;'),
+              pick: () => this.setState({ gen: on ? 'vse' : k }) }; }),
           genders: G.map(([k, l], i) => { const on = gen === k; const x = on && k !== 'vse';
             return { label: l, x, pressed: on ? 'true' : 'false', aria: x ? l + ' – zrušit výběr' : l,
             style: gbase + (on ? 'color:#fff;background:#000;border:1px solid #000;' : 'color:#000;background:#fff;border:1px solid #ddd;'),
