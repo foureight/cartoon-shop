@@ -104,7 +104,7 @@ div[aria-label="Oddělení"] button:hover{color:#00A151 !important}div[aria-labe
 </nav>
 <sc-if value="{{megaOpen}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; left: 0; right: 0; top: 100%; z-index: 30; background: #fff; border-top: 1px solid #000; border-bottom: 1px solid #ddd; box-shadow: 0 32px 48px rgba(0,0,0,0.14)">
-<div style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 36px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 32px; position: relative">
+<div style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 36px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 32px; position: relative">
 <div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; padding-right: 56px">
 <h2 style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 700">{{mega.title}}</h2>
 <span style="font-size: 14px; line-height: 20px; color: #555">{{genderLabel}}</span>
@@ -118,14 +118,12 @@ div[aria-label="Oddělení"] button:hover{color:#00A151 !important}div[aria-labe
 </ul>
 </div>
 </sc-for>
-<a href="katalog.html" style="grid-column: 1; grid-row: 3; display: flex; gap: 14px; align-items: stretch; border: 1px solid #ddd; padding: 12px; text-decoration: none; color: #000">
-<img src="{{mega.outfitImg}}" alt="" loading="lazy" style="width: 96px; height: 120px; object-fit: cover; display: block; flex: 0 0 auto; background: #f4f4f4">
-<span style="display: flex; flex-direction: column; justify-content: center; gap: 2px; min-width: 0">
-<span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #555">Inspirace</span>
-<span style="font-size: 18px; line-height: 22px; font-weight: 700">Outfity</span>
-<span style="font-size: 14px; line-height: 19px">{{mega.outfitText}}</span>
-<span style="font-size: 15px; font-weight: 600; color: #00A151; margin-top: 4px">Prohlédnout <span class="arr">→</span></span>
-</span>
+<a href="katalog.html" style="grid-column: 5; grid-row: 2; position: relative; overflow: hidden; background: #293038; color: #fff; text-decoration: none; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: 20px; min-height: 300px">
+<img src="{{mega.outfitImg}}" alt="" loading="lazy" style="{{mega.outfitStyle}}"><span style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0) 70%)"></span>
+<span style="position: relative; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em">Inspirace</span>
+<span style="position: relative; font-size: 24px; line-height: 28px; font-weight: 700">Outfity</span>
+<span style="position: relative; font-size: 14px; line-height: 19px; color: #e8eaeb">{{mega.outfitText}}</span>
+<span style="position: relative; font-size: 15px; font-weight: 600; margin-top: 4px">Prohlédnout <span class="arr">→</span></span>
 </a>
 <button type="button" onClick="{{closeMega}}" aria-label="Zavřít menu" style="position: absolute; top: 16px; right: 12px; width: 44px; height: 44px; background: none; border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
@@ -470,9 +468,9 @@ class Component extends DCLogic {
           obleceni: { title: 'Oblečení', all: 'Vše v Oblečení', outfitImg: OI, outfitText: 'Hotové kombinace na podzim', cols: CLOTHES },
           boty: { title: 'Boty', all: 'Všechny boty', outfitImg: OI, outfitText: 'Boty do hotových outfitů', cols: [
             C('Boty', ['Tenisky', 'Kotníkové boty', 'Pantofle a sandály'])] },
-          tasky: { title: 'Batohy a tašky', all: 'Všechny batohy a tašky', outfitImg: OI, outfitText: 'Batohy a tašky k outfitům', cols: [
+          tasky: { title: 'Batohy a tašky', all: 'Všechny batohy a tašky', outfitImg: 'img/d888ff68c434095d2008f375dfa78253.jpg', outfitStyle: 'position:absolute;inset:0;width:100%;height:100%;display:block;background:#f4f4f4;object-fit:contain', outfitText: 'Batohy a tašky k outfitům', cols: [
             C('Batohy a tašky', ['Batohy', 'Tašky přes rameno', 'Ledvinky', 'Tote tašky'])] },
-          doplnky: { title: 'Doplňky', all: 'Všechny doplňky', outfitImg: OI, outfitText: 'Doplňky, které outfit dotáhnou', cols: [
+          doplnky: { title: 'Doplňky', all: 'Všechny doplňky', outfitImg: 'img/28a6c9d99ddc3dd555e9c1d1bb4329d6.jpg', outfitStyle: 'position:absolute;inset:0;width:100%;height:100%;display:block;background:#f4f4f4;object-fit:contain', outfitText: 'Doplňky, které outfit dotáhnou', cols: [
             C('Na hlavu', ['Kšiltovky', 'Kulichy', 'Bekovky', 'Klobouky']),
             C('Drobnosti', ['Pásky', 'Peněženky', 'Ponožky', 'Šály', 'Rukavice', 'Brýle', 'Ostatní'])] },
           znacky: { title: 'Značky', all: 'Všechny značky', outfitImg: OI, outfitText: 'Outfity podle značek', cols: [
@@ -497,7 +495,7 @@ class Component extends DCLogic {
         const sCats = ql ? CATS.filter(c => c.t.toLowerCase().indexOf(ql) >= 0).slice(0, 5).map(c => hit(c.t, { href: c.href, where: c.where })) : [];
         const sProds = ql ? PRODS.filter(p => p[0].toLowerCase().indexOf(ql) >= 0).slice(0, 6).map(p => hit(p[0], { where: p[1] })) : [];
         return {
-          megaOpen: !!mg, mega: Object.assign({ allHref: 'katalog.html' }, M[mg] || M.obleceni), closeMega: () => this.setState({ mega: null }),
+          megaOpen: !!mg, mega: Object.assign({ allHref: 'katalog.html', outfitStyle: 'position:absolute;inset:0;width:100%;height:100%;display:block;background:#f4f4f4;object-fit:cover;object-position:center' }, M[mg] || M.obleceni), closeMega: () => this.setState({ mega: null }),
           sq, sopen, sopenStr: sopen ? 'true' : 'false', sEmpty: !ql, sTyped: !!ql,
           sCats, sProds, sHasCats: sCats.length > 0, sHasProds: sProds.length > 0, sNone: !!ql && !sCats.length && !sProds.length,
           sPopular: ['Detroit Jacket', 'Double Knee', 'Mikiny s kapucí', 'Kšiltovky', 'Carhartt WIP', 'Kulichy'].map(t => ({ t, pick: () => this.setState({ sq: t, sopen: true }) })),
