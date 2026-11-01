@@ -18,6 +18,7 @@ a{color:#000}a:not([style*="background"]):not([style*="border"]):not([style*="fl
 :focus-visible{outline:2px solid #00A151 !important;outline-offset:2px}input:focus,select:focus,textarea:focus{outline:2px solid #00A151 !important;outline-offset:0;border-color:#00A151 !important}
 nav[aria-label="Hlavní menu"] a,nav[aria-label="Hlavní menu"] button{outline:none !important}nav[aria-label="Hlavní menu"] a:hover,nav[aria-label="Hlavní menu"] button:hover{color:#00A151 !important}nav[aria-label="Hlavní menu"] a[style*="#F59700"]:hover{color:#F59700 !important}
 a[style*="#F59700"]:hover{color:#F59700 !important;text-decoration:underline !important;text-decoration-color:#F59700 !important;text-underline-offset:3px;border-bottom-color:#F59700 !important}
+div[aria-label="Oddělení"] button:hover{color:#00A151 !important}
 </style>
 </helmet>
 <div style="width: 100%; font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff; overflow: hidden">
@@ -47,18 +48,24 @@ a[style*="#F59700"]:hover{color:#F59700 !important;text-decoration:underline !im
 </form>
 <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
 <nav aria-label="Kategorie" style="border-top: 1px solid #ddd">
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid #ddd; font-size: 15px">
-<a href="katalog.html" style="text-align: center; padding: 12px 0; font-weight: 600; border-bottom: 3px solid #000; text-decoration: none">muži</a>
-<a href="katalog.html" style="text-align: center; padding: 12px 0; text-decoration: none">ženy</a>
-<a href="katalog.html" style="text-align: center; padding: 12px 0; text-decoration: none">unisex</a>
+<div role="group" aria-label="Oddělení" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid #ddd">
+<sc-for list="{{genders}}" as="g" hint-placeholder-count="3"><button type="button" aria-pressed="{{g.pressed}}" onClick="{{g.pick}}" style="{{g.style}}">{{g.label}}</button></sc-for>
 </div>
-<ul style="list-style: none; margin: 0; padding: 0; font-size: 18px; line-height: 24px">
-<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; padding: 14px 16px; text-decoration: none">novinky<span aria-hidden="true">›</span></a></li>
-<li style="border-bottom: 1px solid #ddd"><a href="#" style="display: flex; justify-content: space-between; padding: 14px 16px; text-decoration: none">oblečení<span aria-hidden="true">›</span></a></li>
-<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; padding: 14px 16px; text-decoration: none">tašky a batohy<span aria-hidden="true">›</span></a></li>
-<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; padding: 14px 16px; text-decoration: none">doplňky<span aria-hidden="true">›</span></a></li>
-<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; padding: 14px 16px; text-decoration: none; color: #F59700; font-weight: 700">slevy<span aria-hidden="true">›</span></a></li>
+<ul style="list-style: none; margin: 0; padding: 0; font-size: 18px; line-height: 24px; font-weight: 600">
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 16px; text-decoration: none">Novinky</a></li>
+<li style="border-bottom: 1px solid #ddd"><a href="menu-obleceni.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 16px; text-decoration: none">Oblečení<span aria-hidden="true">›</span></a></li>
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 16px; text-decoration: none">Boty<span aria-hidden="true">›</span></a></li>
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 16px; text-decoration: none">Batohy a tašky<span aria-hidden="true">›</span></a></li>
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 16px; text-decoration: none">Doplňky<span aria-hidden="true">›</span></a></li>
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 16px; text-decoration: none">Značky<span aria-hidden="true">›</span></a></li>
+<li style="border-bottom: 1px solid #ddd"><a href="katalog.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 16px; text-decoration: none; color: #F59700; font-weight: 700">Slevy<span aria-hidden="true">›</span></a></li>
 </ul>
+<a href="katalog.html" style="margin: 16px; position: relative; overflow: hidden; background: #293038; color: #fff; text-decoration: none; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; padding: 16px; min-height: 140px">
+<img src="img/e1e19d0db68f51c166db4eac23d226de.jpg" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: center"><span style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0) 80%)"></span>
+<span style="position: relative; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em">Inspirace</span>
+<span style="position: relative; font-size: 22px; line-height: 26px; font-weight: 700">Outfity</span>
+<span style="position: relative; font-size: 15px; font-weight: 600">Prohlédnout <span class="arr">→</span></span>
+</a>
 <div style="display: flex; gap: 8px; padding: 16px; background: #f4f4f4; font-size: 14px"><a href="#" style="text-decoration: none; font-weight: 600">CZK</a><span>/</span><a href="#" style="text-decoration: none; color: #555">EUR</a></div>
 </nav>
 </sc-if>
@@ -217,6 +224,7 @@ class Component extends DCLogic {
       menuClosed: !menu,
       menuExpanded: menu ? 'true' : 'false',
       toggleMenu: () => this.setState({ menu: !menu }),
+      genders: ['Pánské', 'Dámské', 'Vše'].map((l, i) => { const on = (this.state.gen ?? 2) === i; return { label: l, pressed: on ? 'true' : 'false', style: 'min-height:48px;background:#fff;border:0;border-bottom:3px solid ' + (on ? '#00A151' : 'transparent') + ';font-family:FKGrotesk,sans-serif;font-size:16px;cursor:pointer;' + (on ? 'color:#00A151;font-weight:600' : 'color:#000;font-weight:400'), pick: () => this.setState({ gen: i }) }; }),
       categories: [
         { label: 'Mikiny' }, { label: 'Bundy' }, { label: 'Kalhoty' },
         { label: 'Kraťasy' }, { label: 'Trička' }, { label: 'Doplňky' }
