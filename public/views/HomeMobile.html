@@ -43,7 +43,7 @@ input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
 
 <!-- HERO (H1) -->
 <section aria-label="Hlavní novinky" style="background: #293038; color: #fff">
-<div style="margin: 16px 16px 0; aspect-ratio: 4 / 3; background: #3a434d; position: relative; overflow: hidden"><img src="img/c52d6116ce559e7e46ff504859f3b877.webp" alt="Kampaň Carhartt WIP" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%"></div>
+<div style="margin: 16px 16px 0; aspect-ratio: 4 / 3; background: #3a434d; position: relative; overflow: hidden"><img src="{{slide.img}}" alt="{{slide.photo}}" style="{{slide.imgStyle}}"></div>
 <div style="padding: 24px 16px 28px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em"><span style="width: 28px; height: 4px; background: {{accent}}"></span>{{slide.kicker}}</div>
 <h1 style="margin: 0; font-size: 40px; line-height: 1; font-weight: 700; letter-spacing: -0.02em; white-space: pre-line">{{slide.title}}</h1>
@@ -301,10 +301,10 @@ class Component extends DCLogic {
   __rv() {
     const accent = this.props.accent ?? '#00A151';
     const slides = [
-      { kicker: 'Nový drop', title: 'Carhartt WIP\nArchive', text: 'Návrat archivních kousků Carhartt WIP – v omezeném množství, online i v Panské 7.', cta: 'Mrkni se', photo: 'kampaň Carhartt WIP Archive' },
-      { kicker: 'Nová kolekce', title: 'Jaro / léto\n2026', text: 'Nová sezóna Carhartt WIP, Iriedaily a Edwin je skladem.', cta: 'Prohlédnout kolekci', photo: 'lookbook jaro/léto 2026' },
-      { kicker: 'Akce', title: 'Akce kachna\npokračuje', text: '[Krátký popis akce kachna – pravidla a odměna.]', cta: 'Jak to funguje', photo: 'akce kachna' },
-      { kicker: 'Panská 7', title: 'Přijď si to\nvyzkoušet', text: 'Kamenná prodejna v centru Prahy. Po–So 10–19, Ne 10–18.', cta: 'Kudy k nám', photo: 'prodejna Panská 7' }
+      { kicker: 'Nový drop', title: 'Carhartt WIP\nArchive', text: 'Návrat archivních kousků Carhartt WIP – v omezeném množství, online i v Panské 7.', cta: 'Mrkni se', photo: 'kampaň Carhartt WIP Archive', img: 'img/c52d6116ce559e7e46ff504859f3b877.webp', imgStyle: 'position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: 52% 50%' },
+      { kicker: 'Nová kolekce', title: 'Jaro / léto\n2026', text: 'Nová sezóna Carhartt WIP, Iriedaily a Edwin je skladem.', cta: 'Prohlédnout kolekci', photo: 'lookbook jaro/léto 2026', img: 'img/e1e19d0db68f51c166db4eac23d226de.jpg', imgStyle: 'position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 40%' },
+      { kicker: 'Akce', title: 'Akce kachna\npokračuje', text: '[Krátký popis akce kachna – pravidla a odměna.]', cta: 'Jak to funguje', photo: 'akce kachna', img: 'img/2672d3e49af6de9d2095ed10a393cbd8.jpg', imgStyle: 'position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: 60% 30%' },
+      { kicker: 'Panská 7', title: 'Přijď si to\nvyzkoušet', text: 'Kamenná prodejna v centru Prahy. Po–So 10–19, Ne 10–18.', cta: 'Kudy k nám', photo: 'prodejna Panská 7', img: 'img/a7fb1cb917507138a399821a8e27ebe3.jpg', imgStyle: 'position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%' }
     ];
     const s = this.state.slide;
     const n = slides.length;
