@@ -20,7 +20,7 @@ nav[aria-label="Hlavní menu"] a,nav[aria-label="Hlavní menu"] button{outline:n
 a[style*="#F59700"]:hover{color:#F59700 !important;text-decoration:underline !important;text-decoration-color:#F59700 !important;text-underline-offset:3px;border-bottom-color:#F59700 !important}
 input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
 nav[aria-label="Hlavní menu"] a[data-sale="true"],nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{color:#F59700 !important}nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{font-weight:600 !important;text-decoration:none !important;border-bottom-color:#F59700 !important}
-div[aria-label="Oddělení"] button:hover{color:#00A151 !important}div[aria-label="Oddělení"] button{outline:none !important}div[aria-label="Oddělení"] button:focus-visible{outline:2px solid #00A151 !important;outline-offset:-2px}
+div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{background:#f4f4f4 !important}div[aria-label="Oddělení"] button{outline:none !important}div[aria-label="Oddělení"] button:focus-visible{outline:2px solid #00A151 !important;outline-offset:-2px}
 </style>
 </helmet>
 <div style="width: 100%; min-width: 0; font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff">
@@ -39,7 +39,7 @@ div[aria-label="Oddělení"] button:hover{color:#00A151 !important}div[aria-labe
 <a href="index.html" aria-label="Cartoon – úvod" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none">
 <img src="img/6b673a984f403c01ecd9985d2700a26c.svg" alt="cartoon" style="width: 150px; height: auto; display: block">
 </a>
-<div role="group" aria-label="Oddělení" style="display: flex; gap: 2px; background: #f4f4f4; padding: 4px">
+<div role="group" aria-label="Oddělení" style="display: flex; gap: 4px">
 <sc-for list="{{genders}}" as="g" hint-placeholder-count="3"><button type="button" aria-pressed="{{g.pressed}}" onClick="{{g.pick}}" style="{{g.style}}">{{g.label}}</button></sc-for>
 </div>
 <div onMouseLeave="{{closeSearch}}" style="position: relative; width: 100%; max-width: 600px; justify-self: center">
@@ -305,7 +305,7 @@ class Component extends DCLogic {
           closeSearch: () => this.setState({ sopen: false }),
           genderLabel: gen === 'vse' ? 'Pánské i dámské' : (gen === 'panske' ? 'Pánské' : 'Dámské'),
           genders: G.map(([k, l], i) => ({ label: l, pressed: gen === k ? 'true' : 'false',
-            style: gbase + (gen === k ? 'color:#00A151;background:#fff;' : 'color:#000;background:transparent;'),
+            style: gbase + (gen === k ? 'color:#000;background:#e8e8e8;' : 'color:#000;background:transparent;'),
             pick: () => this.setState({ gen: k }) })),
           navItems: N.map(([k, l, sub]) => {
             const open = mg === k; const isCur = cur === k; const sale = k === 'slevy';
