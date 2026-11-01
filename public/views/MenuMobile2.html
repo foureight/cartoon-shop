@@ -74,10 +74,10 @@ class Component extends DCLogic {
     this.state = { tab: 2 };
   }
   renderVals() {
-    const T = ['Pánské', 'Dámské', 'Vše'];
+    const T = ['Muži', 'Ženy', 'Vše'];
     const tab = this.state.tab;
     return {
-      genderLabel: ['Pánské', 'Dámské', 'Pánské i dámské'][tab],
+      genderLabel: ['Muži', 'Ženy', 'Muži i ženy'][tab],
       tabs: T.map((t, i) => {
         const on = tab === i;
         return { label: t, pressed: on ? 'true' : 'false',

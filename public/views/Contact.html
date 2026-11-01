@@ -20,7 +20,7 @@ nav[aria-label="Hlavní menu"] a,nav[aria-label="Hlavní menu"] button{outline:n
 a[style*="#F59700"]:hover{color:#F59700 !important;text-decoration:underline !important;text-decoration-color:#F59700 !important;text-underline-offset:3px;border-bottom-color:#F59700 !important}
 input[type="checkbox"],input[type="radio"]{accent-color:#00A151 !important}
 nav[aria-label="Hlavní menu"] a[data-sale="true"],nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{color:#F59700 !important}nav[aria-label="Hlavní menu"] a[data-sale="true"]:hover{font-weight:600 !important;text-decoration:none !important;border-bottom-color:#F59700 !important}
-div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{background:#f4f4f4 !important}div[aria-label="Oddělení"] button{outline:none !important}div[aria-label="Oddělení"] button:focus-visible{outline:2px solid #00A151 !important;outline-offset:-2px}
+div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{border-color:#000 !important}div[aria-label="Oddělení"] button{outline:none !important}div[aria-label="Oddělení"] button:focus-visible{outline:2px solid #00A151 !important;outline-offset:-2px}
 </style>
 </helmet>
 <div style="width: 100%; min-width: 0; font-family: FKGrotesk, sans-serif; font-size: 16px; line-height: 1.6; color: #000; background: #fff">
@@ -35,13 +35,10 @@ div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{background:#f4f4
 
 <!-- HEADER -->
 <header onMouseLeave="{{closeMega}}" style="border-bottom: 1px solid #ddd">
-<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: grid; grid-template-columns: auto auto minmax(240px, 1fr) auto; align-items: center; gap: 12px 24px">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: grid; grid-template-columns: auto minmax(240px, 1fr) auto; align-items: center; gap: 12px 24px">
 <a href="index.html" aria-label="Cartoon – úvod" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none">
 <img src="img/6b673a984f403c01ecd9985d2700a26c.svg" alt="cartoon" style="width: 150px; height: auto; display: block">
 </a>
-<div role="group" aria-label="Oddělení" style="display: flex; gap: 4px">
-<sc-for list="{{genders}}" as="g" hint-placeholder-count="3"><button type="button" aria-pressed="{{g.pressed}}" onClick="{{g.pick}}" style="{{g.style}}">{{g.label}}</button></sc-for>
-</div>
 <div onMouseLeave="{{closeSearch}}" style="position: relative; width: 100%; max-width: 600px; justify-self: center">
 <form role="search" style="display: flex; border: 1px solid #000; box-sizing: border-box">
 <label for="hq" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Hledat</label>
@@ -91,7 +88,8 @@ div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{background:#f4f4
 </div>
 </div>
 <div style="position: relative">
-<nav aria-label="Hlavní menu" style="max-width: 1360px; margin: 0 auto; padding: 0 24px">
+<div style="max-width: 1360px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 24px">
+<nav aria-label="Hlavní menu">
 <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 8px; font-size: 16px; line-height: 20px">
 <sc-for list="{{navItems}}" as="n" hint-placeholder-count="7">
 <li>
@@ -101,6 +99,10 @@ div[aria-label="Oddělení"] button[aria-pressed="false"]:hover{background:#f4f4
 </sc-for>
 </ul>
 </nav>
+<div role="group" aria-label="Oddělení" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 0">
+<sc-for list="{{genders}}" as="g" hint-placeholder-count="3"><button type="button" aria-pressed="{{g.pressed}}" aria-label="{{g.aria}}" onClick="{{g.pick}}" style="{{g.style}}">{{g.label}}<sc-if value="{{g.x}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="font-size: 16px; line-height: 1">×</span></sc-if></button></sc-for>
+</div>
+</div>
 <sc-if value="{{megaOpen}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; left: 0; right: 0; top: 100%; z-index: 30; background: #fff; border-top: 1px solid #000; border-bottom: 1px solid #ddd; box-shadow: 0 32px 48px rgba(0,0,0,0.14)">
 <div style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 36px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 32px; position: relative">
@@ -297,10 +299,10 @@ class Component extends DCLogic {
             C('Carhartt WIP', [{ t: 'Carhartt WIP Praha', href: 'carhartt-wip-praha.html' }, { t: 'Historie značky', href: 'historie.html' }, { t: 'Distribuce CZ/SK', href: 'distribuce.html' }])] }
         };
         const N = [['novinky', 'Novinky', 1], ['obleceni', 'Oblečení', 1], ['boty', 'Boty', 1], ['tasky', 'Batohy a tašky', 1], ['doplnky', 'Doplňky', 1], ['znacky', 'Značky', 1], ['slevy', 'Slevy', 0]];
-        const G = [['panske', 'Pánské'], ['damske', 'Dámské'], ['vse', 'Vše']];
+        const G = [['panske', 'Muži'], ['damske', 'Ženy'], ['vse', 'Vše']];
         const gen = this.state.gen || 'vse';
         const base = 'display:flex;align-items:center;gap:6px;padding:12px 10px;min-height:48px;box-sizing:border-box;background:none;border:0;font-family:FKGrotesk,sans-serif;font-size:16px;line-height:20px;font-weight:600;text-decoration:none;cursor:pointer;';
-        const gbase = 'display:flex;align-items:center;padding:0 14px;min-height:40px;box-sizing:border-box;border:0;font-family:FKGrotesk,sans-serif;font-size:15px;line-height:18px;font-weight:700;cursor:pointer;';
+        const gbase = 'display:inline-flex;align-items:center;gap:8px;padding:0 12px;min-height:34px;box-sizing:border-box;font-family:FKGrotesk,sans-serif;font-size:14px;line-height:18px;font-weight:600;cursor:pointer;';
         // našeptávač
         const sq = this.state.sq || '';
         const ql = sq.trim().toLowerCase();
@@ -321,10 +323,11 @@ class Component extends DCLogic {
           onSq: e => this.setState({ sq: e && e.target ? e.target.value : '', sopen: true, mega: null }),
           openSearch: () => this.setState({ sopen: true, mega: null }),
           closeSearch: () => this.setState({ sopen: false }),
-          genderLabel: gen === 'vse' ? 'Pánské i dámské' : (gen === 'panske' ? 'Pánské' : 'Dámské'),
-          genders: G.map(([k, l], i) => ({ label: l, pressed: gen === k ? 'true' : 'false',
-            style: gbase + (gen === k ? 'color:#000;background:#e8e8e8;' : 'color:#000;background:transparent;'),
-            pick: () => this.setState({ gen: k }) })),
+          genderLabel: gen === 'vse' ? 'Muži i ženy' : (gen === 'panske' ? 'Muži' : 'Ženy'),
+          genders: G.map(([k, l], i) => { const on = gen === k; const x = on && k !== 'vse';
+            return { label: l, x, pressed: on ? 'true' : 'false', aria: x ? l + ' – zrušit výběr' : l,
+            style: gbase + (on ? 'color:#fff;background:#000;border:1px solid #000;' : 'color:#000;background:#fff;border:1px solid #ddd;'),
+            pick: () => this.setState({ gen: x ? 'vse' : k }) }; }),
           navItems: N.map(([k, l, sub]) => {
             const open = mg === k; const isCur = cur === k; const sale = k === 'slevy';
             const on = open || (isCur && !mg);
