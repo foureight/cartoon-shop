@@ -107,12 +107,15 @@ span[aria-label="Oddělení v menu"] button[aria-pressed="false"]:hover{border-c
 <sc-if value="{{megaOpen}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; left: 0; right: 0; top: 100%; z-index: 30; background: #fff; border-top: 1px solid #000; border-bottom: 1px solid #ddd; box-shadow: 0 32px 48px rgba(0,0,0,0.14)">
 <div style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 36px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 32px; position: relative">
-<div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; padding-right: 56px">
+<div style="grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 6px 20px; padding-right: 56px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px">
 <h2 style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 700">{{mega.title}}</h2>
+<a href="{{mega.allHref}}" style="font-size: 15px; font-weight: 600">{{mega.all}} <span class="arr">→</span></a>
+</div>
 <span role="group" aria-label="Oddělení v menu" style="display: inline-flex; align-items: center; gap: 6px">
 <sc-for list="{{megaGenders}}" as="mg" hint-placeholder-count="2"><button type="button" aria-pressed="{{mg.pressed}}" aria-label="{{mg.aria}}" onClick="{{mg.pick}}" style="{{mg.style}}">{{mg.label}}<sc-if value="{{mg.x}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="font-size: 13px; line-height: 1">×</span></sc-if></button></sc-for>
 </span>
-<a href="{{mega.allHref}}" style="font-size: 15px; font-weight: 600">{{mega.all}} <span class="arr">→</span></a>
+<span aria-hidden="true"></span>
 </div>
 <sc-if value="{{mega.isOutfits}}" hint-placeholder-val="{{ false }}">
 <div style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 32px">
