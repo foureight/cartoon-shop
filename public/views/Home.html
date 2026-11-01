@@ -74,7 +74,7 @@ div[aria-label="Oddělení"] button:hover{color:#00A151 !important}div[aria-labe
 <div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; padding-right: 56px">
 <h2 style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600">{{mega.title}}</h2>
 <span style="font-size: 14px; line-height: 20px; color: #555">{{genderLabel}}</span>
-<a href="katalog.html" style="font-size: 15px; font-weight: 600">{{mega.all}} <span class="arr">→</span></a>
+<a href="{{mega.allHref}}" style="font-size: 15px; font-weight: 600">{{mega.all}} <span class="arr">→</span></a>
 </div>
 <sc-for list="{{mega.cols}}" as="col" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
@@ -424,6 +424,9 @@ class Component extends DCLogic {
         const C = (h, items) => ({ h, items: items.map(t => (typeof t === 'string' ? { t, href: 'katalog.html' } : t)) });
         const OI = 'img/e1e19d0db68f51c166db4eac23d226de.jpg';
         const M = {
+          novinky: { title: 'Novinky', all: 'Všechny novinky', allHref: 'novinky.html', outfitImg: OI, cols: [
+            C('Nejnovější z Panské', [{ t: 'Nová kolekce Carhartt WIP jaro / léto 2026 je v Panské 7', href: 'novinka.html' }, { t: 'Archive drop: co přesně dorazilo', href: 'novinka.html' }, { t: 'Akce kachna pokračuje', href: 'novinka.html' }]),
+            C('Rubriky', [{ t: 'Prodejna', href: 'novinky.html' }, { t: 'Kolekce', href: 'novinky.html' }, { t: 'Akce', href: 'novinky.html' }, { t: 'Mailing', href: 'novinky.html' }])] },
           obleceni: { title: 'Oblečení', all: 'Vše v Oblečení', outfitImg: OI, cols: [
             C('Horní díly', ['Trička', 'Polo trička', 'Mikiny s kapucí', 'Mikiny bez kapuce', 'Košile', 'Svetry']),
             C('Kalhoty', ['Jeans / denim', 'Work', 'Chinos', 'Cargo / kapsáče', 'Lacláče', 'Manžestr', 'Tepláky']),
@@ -440,13 +443,13 @@ class Component extends DCLogic {
             C('Značky', [{ t: 'Carhartt WIP', href: 'carhartt-wip-praha.html' }, 'Edwin', 'IrieDaily', 'Stetson', 'The Dudes']),
             C('Carhartt WIP', [{ t: 'Carhartt WIP Praha', href: 'carhartt-wip-praha.html' }, { t: 'Historie značky', href: 'historie.html' }, { t: 'Distribuce CZ/SK', href: 'distribuce.html' }])] }
         };
-        const N = [['novinky', 'Novinky', 0], ['obleceni', 'Oblečení', 1], ['boty', 'Boty', 1], ['tasky', 'Batohy a tašky', 1], ['doplnky', 'Doplňky', 1], ['znacky', 'Značky', 1], ['slevy', 'Slevy', 0]];
+        const N = [['novinky', 'Novinky', 1], ['obleceni', 'Oblečení', 1], ['boty', 'Boty', 1], ['tasky', 'Batohy a tašky', 1], ['doplnky', 'Doplňky', 1], ['znacky', 'Značky', 1], ['slevy', 'Slevy', 0]];
         const G = [['panske', 'Pánské'], ['damske', 'Dámské'], ['vse', 'Vše']];
         const gen = this.state.gen || 'vse';
         const base = 'display:flex;align-items:center;gap:6px;padding:12px 10px;min-height:48px;box-sizing:border-box;background:none;border:0;font-family:FKGrotesk,sans-serif;font-size:16px;line-height:20px;font-weight:600;text-decoration:none;cursor:pointer;';
         const gbase = 'display:flex;align-items:center;padding:0 12px;min-height:44px;box-sizing:border-box;background:none;border:0;font-family:FKGrotesk,sans-serif;font-size:14px;line-height:18px;cursor:pointer;';
         return {
-          megaOpen: !!mg, mega: M[mg] || M.obleceni, closeMega: () => this.setState({ mega: null }),
+          megaOpen: !!mg, mega: Object.assign({ allHref: 'katalog.html' }, M[mg] || M.obleceni), closeMega: () => this.setState({ mega: null }),
           genderLabel: gen === 'vse' ? 'Pánské i dámské' : (gen === 'panske' ? 'Pánské' : 'Dámské'),
           genders: G.map(([k, l]) => ({ label: l, pressed: gen === k ? 'true' : 'false',
             style: gbase + (gen === k ? 'color:#00A151;font-weight:600;border-bottom:3px solid #00A151;' : 'color:#000;font-weight:400;border-bottom:3px solid transparent;'),
