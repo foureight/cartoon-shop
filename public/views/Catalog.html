@@ -35,21 +35,21 @@ div[aria-label="Oddělení"] button:hover{color:#00A151 !important}div[aria-labe
 
 <!-- HEADER -->
 <header onMouseLeave="{{closeMega}}" style="border-bottom: 1px solid #ddd">
-<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: grid; grid-template-columns: auto auto minmax(240px, 1fr) auto; align-items: center; gap: 12px 24px">
 <a href="index.html" aria-label="Cartoon – úvod" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none">
 <img src="img/6b673a984f403c01ecd9985d2700a26c.svg" alt="cartoon" style="width: 150px; height: auto; display: block">
 </a>
-<div role="group" aria-label="Oddělení" style="display: flex; border: 1px solid #000">
+<div role="group" aria-label="Oddělení" style="display: flex; gap: 2px; background: #f4f4f4; padding: 4px">
 <sc-for list="{{genders}}" as="g" hint-placeholder-count="3"><button type="button" aria-pressed="{{g.pressed}}" onClick="{{g.pick}}" style="{{g.style}}">{{g.label}}</button></sc-for>
 </div>
-<div onMouseLeave="{{closeSearch}}" style="position: relative; flex: 0 1 300px; min-width: 200px">
+<div onMouseLeave="{{closeSearch}}" style="position: relative; width: 100%; max-width: 600px; justify-self: center">
 <form role="search" style="display: flex; border: 1px solid #000; box-sizing: border-box">
 <label for="hq" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Hledat</label>
 <input id="hq" type="search" value="{{sq}}" onChange="{{onSq}}" onFocus="{{openSearch}}" autocomplete="off" aria-autocomplete="list" aria-controls="hq-sug" aria-expanded="{{sopenStr}}" placeholder="Co hledáš?" style="flex: 1 1 auto; min-width: 0; border: 0; padding: 10px 12px; font-family: FKGrotesk, sans-serif; font-size: 15px">
 <button type="submit" aria-label="Hledat" style="width: 44px; border: 0; background: #000; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
 </form>
 <sc-if value="{{sopen}}" hint-placeholder-val="{{ false }}">
-<div id="hq-sug" style="position: absolute; top: calc(100% + 6px); left: 0; z-index: 40; width: 520px; max-width: calc(100vw - 48px); box-sizing: border-box; background: #fff; border: 1px solid #000; box-shadow: 0 24px 40px rgba(0,0,0,0.14); padding: 18px 20px 14px; display: flex; flex-direction: column; gap: 16px">
+<div id="hq-sug" style="position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 40; width: auto; max-width: calc(100vw - 48px); box-sizing: border-box; background: #fff; border: 1px solid #000; box-shadow: 0 24px 40px rgba(0,0,0,0.14); padding: 18px 20px 14px; display: flex; flex-direction: column; gap: 16px">
 <sc-if value="{{sEmpty}}" hint-placeholder-val="{{ true }}">
 <div>
 <h3 style="margin: 0 0 10px; font-size: 13px; line-height: 16px; font-weight: 700; color: #555">Často hledané</h3>
@@ -83,7 +83,7 @@ div[aria-label="Oddělení"] button:hover{color:#00A151 !important}div[aria-labe
 </div>
 </sc-if>
 </div>
-<div style="display: flex; gap: 4px; margin-left: auto">
+<div style="display: flex; gap: 4px; justify-self: end">
 <a href="#" aria-label="Měna CZK / EUR" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M15 9a4 4 0 1 0 0 6"></path></svg></a>
 <a href="kontakt.html" aria-label="Kontakt" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></a>
 <a href="#" aria-label="Můj účet" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
@@ -514,7 +514,7 @@ class Component extends DCLogic {
         const G = [['panske', 'Pánské'], ['damske', 'Dámské'], ['vse', 'Vše']];
         const gen = this.state.gen || 'vse';
         const base = 'display:flex;align-items:center;gap:6px;padding:12px 10px;min-height:48px;box-sizing:border-box;background:none;border:0;font-family:FKGrotesk,sans-serif;font-size:16px;line-height:20px;font-weight:600;text-decoration:none;cursor:pointer;';
-        const gbase = 'display:flex;align-items:center;padding:0 16px;min-height:44px;box-sizing:border-box;background:#fff;border:0;font-family:FKGrotesk,sans-serif;font-size:15px;line-height:18px;font-weight:700;cursor:pointer;';
+        const gbase = 'display:flex;align-items:center;padding:0 14px;min-height:40px;box-sizing:border-box;border:0;font-family:FKGrotesk,sans-serif;font-size:15px;line-height:18px;font-weight:700;cursor:pointer;';
         // našeptávač
         const sq = this.state.sq || '';
         const ql = sq.trim().toLowerCase();
@@ -537,7 +537,7 @@ class Component extends DCLogic {
           closeSearch: () => this.setState({ sopen: false }),
           genderLabel: gen === 'vse' ? 'Pánské i dámské' : (gen === 'panske' ? 'Pánské' : 'Dámské'),
           genders: G.map(([k, l], i) => ({ label: l, pressed: gen === k ? 'true' : 'false',
-            style: gbase + (i ? 'border-left:1px solid #000;' : '') + (gen === k ? 'color:#00A151;box-shadow:inset 0 -3px 0 #00A151;' : 'color:#000;box-shadow:none;'),
+            style: gbase + (gen === k ? 'color:#00A151;background:#fff;' : 'color:#000;background:transparent;'),
             pick: () => this.setState({ gen: k }) })),
           navItems: N.map(([k, l, sub]) => {
             const open = mg === k; const isCur = cur === k; const sale = k === 'slevy';
